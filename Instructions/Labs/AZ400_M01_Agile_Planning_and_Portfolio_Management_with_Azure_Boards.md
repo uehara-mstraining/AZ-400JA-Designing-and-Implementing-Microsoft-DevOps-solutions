@@ -1,7 +1,7 @@
----
+﻿---
 lab:
     title: 'ラボ: Azure Boards を使用したアジャイル プランニングとポートフォリオ管理'
-    az400Module: 'モジュール 1: DevOps の計画'
+    module: 'モジュール 1: DevOps の計画'
 ---
 
 # ラボ: Azure Boards を使用したアジャイル プランニングとポートフォリオ管理

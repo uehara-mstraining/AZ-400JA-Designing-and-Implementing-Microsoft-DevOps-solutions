@@ -1,7 +1,7 @@
----
+﻿---
 lab:
     title: 'ラボ: Azure Kubernetes サービスへのマルチコンテナー アプリケーションのデプロイ'
-    az400Module: 'モジュール 16: Kubernetes サービス インフラストラクチャの作成と管理'
+    module: 'モジュール 16: Kubernetes サービス インフラストラクチャの作成と管理'
 ---
 
 # ラボ: Azure Kubernetes Services へのマルチコンテナー アプリケーションのデプロイ

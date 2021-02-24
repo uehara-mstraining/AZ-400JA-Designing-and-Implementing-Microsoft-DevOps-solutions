@@ -1,7 +1,7 @@
----
+﻿---
 lab:
     title: 'ラボ: 機能テストの設定と実行'
-    az400Module: 'モジュール 11: Azure Pipelines を使用した継続的デプロイの実装'
+    module: 'モジュール 11: Azure Pipelines を使用した継続的デプロイの実装'
 ---
 
 # ラボ: 機能テストの設定と実行

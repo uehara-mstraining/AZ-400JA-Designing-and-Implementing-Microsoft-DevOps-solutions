@@ -1,7 +1,7 @@
----
+﻿---
 lab:
     title: 'ラボ: LaunchDarkly と Azure DevOps を使用した機能フラグ管理'
-    az400Module: 'モジュール 12: 適切なデプロイ パターンの実装'
+    module: 'モジュール 12: 適切なデプロイ パターンの実装'
 ---
 
 # ラボ: LaunchDarkly と Azure DevOps を使用した機能フラグ管理
