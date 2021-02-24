@@ -1,4 +1,4 @@
-﻿---
+---
 lab:
     title: 'ラボ: Resource Manager テンプレートを使用した Azure デプロイ'
     az400Module: 'モジュール 13: Azure ツールを使用したインフラストラクチャと構成の管理'
