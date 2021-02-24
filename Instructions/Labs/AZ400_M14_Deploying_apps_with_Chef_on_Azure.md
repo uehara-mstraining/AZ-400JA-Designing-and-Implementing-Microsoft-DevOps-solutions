@@ -105,17 +105,17 @@ https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.github
 
 1.  「**カスタム デプロイ**」 ブレードで 「**レビューと作成**」 をクリックします。検証プロセスが完了していることを確認して、「**作成**」 をクリックします。
 
-    > ** 注**: デプロイが完了するのを待ちます。これにはおよそ 10 分かかります。
+    > **注**: デプロイが完了するのを待ちます。これにはおよそ 10 分かかります。
 
 1.  デプロイの完了後、Azure portal でページの最上部にある 「**リソース、サービス、ドキュメントの検索**」 テキスト ボックスを使い、**仮想マシン** リソースを検索して選択します。「**仮想マシン**」 ブレードで、新しくデプロイされた **az400m14chs-vm** 仮想マシンを示すエントリを選択します。
 1.  **az400m14chs-vm** ブレードで、マウスのポインターを 「**DNS 名**」 エントリの上に動かし、これをクリップボードにコピーします。 
 1.  新しいブラウザー タブを開き、クリップボードにコピーした DNS 名に移動します。**Https** プレフィックスを使用します。 
 
-    > ** 注**: 証明書エラーは無視してください。これは予測されていることです。 
+    > **注**: 証明書エラーは無視してください。これは予測されていることです。 
 
 1.  Chef Automate ログイン プロンプトにアクセスできることを確認します。
 
-    > ** 注**: Chef Automate にサインインする前に次のタスクを完了する必要があります。 
+    > **注**: Chef Automate にサインインする前に次のタスクを完了する必要があります。 
 
 #### タスク 2: Chef ワークステーションを構成する
 
@@ -123,7 +123,7 @@ https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.github
 
 1.  ラボのコンピューターで別の Web ブラウザー ウィンドウを起動し、[Chef 開発キット (Chef DK)](https://downloads.chef.io/chefdk) ダウンロード ページに移動し、ラボの仮想マシン (Windows 10) に一致する Chef 開発キットのバージョンを選択します。「**ダウンロード**」 をクックし、「**ChefDK のダウンロード**」 ポップアップ ウィンドウで、要求された連絡先情報を提供します。再び、「**ダウンロード**」 をクリックします。
 
-    > ** 注**: 2020 年 12 月時点で、Chef 開発キットの最新バージョンは 4.12.0 です。Windows 10 向けの Chef 開発キット 4.12.0-1-x64 は、このラボでテストされています。
+    > **注**: 2020 年 12 月時点で、Chef 開発キットの最新バージョンは 4.12.0 です。Windows 10 向けの Chef 開発キット 4.12.0-1-x64 は、このラボでテストされています。
 
 1.  Chef 開発キットのインストーラーをダウンロードした後、既定の設定のインストールを完了し、その結果生じたデスクトップのショートカットをダブルクリックして 「**管理者: ChefDK**」 PowerShell ウィンドウを起動します。 
 1.  「**管理者: ChefDK**」 PowerShell ウィンドウで以下を実行し、インストールを確認します:
@@ -140,11 +140,11 @@ https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.github
     git config --global user.email "azureuser@partsunlimitedmrp.local"
     ```
 
-    > ** 注**: Git を使用して Chef 構成の詳細を格納します。
+    > **注**: Git を使用して Chef 構成の詳細を格納します。
 
-    > ** 注**: PowerShell ウィンドウは開いたままにします。これは後ほど、このラボで再び使用します。
+    > **注**: PowerShell ウィンドウは開いたままにします。これは後ほど、このラボで再び使用します。
 
-    > ** 注**: Chef Automate を接続して管理するには、インストールをホストしている Azure VM の vmId 属性を特定する必要があります。vmId は、Azure で各 VM に割り当てられている一意の値です。vmId は、Azure PowerShell や Azure CLI など、数多くの方法で取得できます。このラボでは、この目的で PuTTY を使用します。
+    > **注**: Chef Automate を接続して管理するには、インストールをホストしている Azure VM の vmId 属性を特定する必要があります。vmId は、Azure で各 VM に割り当てられている一意の値です。vmId は、Azure PowerShell や Azure CLI など、数多くの方法で取得できます。このラボでは、この目的で PuTTY を使用します。
 
 1.  ラボのコンピューターの Web ブラウザー ウィンドウで [PuTTY ダウンロード ページ](https://putty.org/) に移動し、PuTTY インストーラーをダウンロードします。既定の設定を使ってインストールを実行します。
 1.  インストール後、「**スタート**」 メニューで **PuTTY (64-bit)** フォルダーを拡張し、「**PuTTY**」 アイコンをクリックして 「**PuTTY 構成**」 ウィンドウを開きます。
@@ -157,7 +157,7 @@ https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.github
     sudo chef-marketplace-ctl show-instance-id
     ```
 
-    > ** 注**: vmId の値を記録します。このタスクの後半で必要になります。
+    > **注**: vmId の値を記録します。このタスクの後半で必要になります。
 
 1.  PuTTY コンソール ウィンドウで以下を実行してセッションを終了します:
 
@@ -165,7 +165,7 @@ https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.github
     exit
     ```
 
-    > ** 注**: 前のタスクでインストールし、Azure VM で実行中の Chef Automate にアクセスするには、Chef スターター きっとが必要です。Chef スターター キットにアクセスするには、前のタスクの最後で特定した DNS名に /biscotti/setup を追加します。これにより、以下の形式に似た URL ができます (`<DNS_name>` プレースホルダーは、前のタスクの最後に特定した DNS 名を示します):
+    > **注**: 前のタスクでインストールし、Azure VM で実行中の Chef Automate にアクセスするには、Chef スターター きっとが必要です。Chef スターター キットにアクセスするには、前のタスクの最後で特定した DNS名に /biscotti/setup を追加します。これにより、以下の形式に似た URL ができます (`<DNS_name>` プレースホルダーは、前のタスクの最後に特定した DNS 名を示します):
 
     ```
     https://<DNS_name>/biscotti/setup
@@ -185,13 +185,13 @@ https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.github
     | サポート アカウントを作成し、Chef Automate サブスクリプションに含まれている Chef ベース サポートを有効にします | **オフ** |
     | EULA およびマスター合意書を読み、承諾します | **オン** |
 
-    > ** 注**: これは**既定**の組織名に適用されます。Chef Automate 構成セットアップの一部として組織名を指定しないためです。オプションで、Chef Automate サーバー内で組織名を指定することもできます。この組織の値は、このラボで後ほど、**knife.rb** ファイルに含まれます。 
+    > **注**: これは**既定**の組織名に適用されます。Chef Automate 構成セットアップの一部として組織名を指定しないためです。オプションで、Chef Automate サーバー内で組織名を指定することもできます。この組織の値は、このラボで後ほど、**knife.rb** ファイルに含まれます。 
 
 1.  指示されたら、「**スターター キットのダウンロード**」 をクリックします。これにより、starter-kit.zip という名前のファイルのダウンロードがトリガーされます。この中には、事前に構成され、Chef のセットアップを促すファイルが含まれています。 
 
-    > ** 注**: Chef スターター キットには、ユーザー資格情報と証明書の詳細が含まれています。最初の登録中に異なる資格情報と詳細が生成されます。これは提供されるユーザーと組織の詳細に固有のものになります。Chef スターター キットは複数のユーザーまたは登録で再使用しないでください。
+    > **注**: Chef スターター キットには、ユーザー資格情報と証明書の詳細が含まれています。最初の登録中に異なる資格情報と詳細が生成されます。これは提供されるユーザーと組織の詳細に固有のものになります。Chef スターター キットは複数のユーザーまたは登録で再使用しないでください。
 
-    > ** 注**: Chef スターター キットのダウンロード後、「**Chef Automate にログイン**」 ボタンを利用できるようになります。 
+    > **注**: Chef スターター キットのダウンロード後、「**Chef Automate にログイン**」 ボタンを利用できるようになります。 
 
 1.  Web ブラウザーウィンドウで 「**Chef Automate にログイン**」 ボタンをクリックし、Chef Automate にサインインします。「**Chef Automate セットアップ**」 Web ページで提供したユーザー名 (**azureuser**) とパスワード (**Pa55w.rd1234**) を使用します。これで、Chef Automate ダッシュボードが表示されます。
 1.  ラボのコンピューターでエクスプローラーを開き、**Chef スタート キット** zip アーカイブの内容を **Downloads** フォルダーから **C:\\Labfiles\\chef** フォルダーに抽出します。
@@ -206,7 +206,7 @@ https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.github
     git commit -m "starter kit commit"
     ```
 
-    > ** 注**: この Chef サーバーには、信頼されていない SSL 証明書が含まれています。このため、Chef ワークステーションの SSL 証明書を手動で信頼し、Chef サーバーと通信できるようにする必要があります。これを変更するため、以下のコマンドを実行して Chef の有効な SSL 証明書をインポートします:
+    > **注**: この Chef サーバーには、信頼されていない SSL 証明書が含まれています。このため、Chef ワークステーションの SSL 証明書を手動で信頼し、Chef サーバーと通信できるようにする必要があります。これを変更するため、以下のコマンドを実行して Chef の有効な SSL 証明書をインポートします:
 
     ```chef
     knife ssl fetch
@@ -224,9 +224,9 @@ https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.github
     knife download /
     ```
 
-    > ** 注**: このコマンドは、Chef Automate サーバーから Chef リポジトリ全体をダウンロードします。
+    > **注**: このコマンドは、Chef Automate サーバーから Chef リポジトリ全体をダウンロードします。
 
-    > ** 注**: ユーザー アカウントの詳細によっては acls に関連したエラーが表示されるかもしれませんが、このラボの目的上、これらのエラーは無視できます。
+    > **注**: ユーザー アカウントの詳細によっては acls に関連したエラーが表示されるかもしれませんが、このラボの目的上、これらのエラーは無視できます。
 
 1.  「**管理者: Chef DK**」 PowerShell ウィンドウで再び以下を実行し、`knife download /` コマンドを実行した後、chef-repo の最新の内容を一覧表示し、chef-repo ディレクトリで作成された追加ファイルとフォルダーをメモします。
 
@@ -252,7 +252,7 @@ https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.github
     chef generate cookbook mrpapp
     ```
 
-    > ** 注**: クックブックは、アプリケーションまたは機能を構成するタスクのセットです。。シナリオと、そのシナリオをサポートするために必要なものをすべて定義します。クックブック内には、クックブックが実行するアクションを定義する一連のレシピがあります。クックブックとレシピは Ruby 言語で書かれています。実行した chef 生成クックブック コマンドにより、**mrpapp** ディレクトリが **chef-repo\\cookbooks** ディレクトリで作成されます。The mrpapp ディレクトリには、クックブックと既定のレシピを定義する定型コードがすべて含まれています。
+    > **注**: クックブックは、アプリケーションまたは機能を構成するタスクのセットです。。シナリオと、そのシナリオをサポートするために必要なものをすべて定義します。クックブック内には、クックブックが実行するアクションを定義する一連のレシピがあります。クックブックとレシピは Ruby 言語で書かれています。実行した chef 生成クックブック コマンドにより、**mrpapp** ディレクトリが **chef-repo\\cookbooks** ディレクトリで作成されます。The mrpapp ディレクトリには、クックブックと既定のレシピを定義する定型コードがすべて含まれています。
 
 1.  「**管理者: Chef DK**」 PowerShell ウィンドウで以下を実行し、編集できるように **metadata.rb** ファイルを開きます。
 
@@ -260,7 +260,7 @@ https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.github
     notepad .\mrpapp\metadata.rb
     ```
 
-    > ** 注**: クックブックとレシピは他のクックブックやレシピを利用できます。このクックブックは既存のレシピを使用して、APT リポジトリを管理します。 
+    > **注**: クックブックとレシピは他のクックブックやレシピを利用できます。このクックブックは既存のレシピを使用して、APT リポジトリを管理します。 
 
 1.  **metadata.rb** ファイルの内容が表示されているメモ帳ウィンドウで、以下のラインをファイルの最後に追加し、保存してからメモ帳ウィンドウを閉じます。
 
@@ -268,7 +268,7 @@ https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.github
     depends 'apt'
     ```
 
-    > ** 注**: 次に、レシピの 3 つの依存関係をインストールする必要があります。**apt** クックブック、**windows** クックブック、**chef-client** クックブックです。3 つのクックブックは [公式 Chef クックブック リポジトリ](https://supermarket.chef.io/cookbooks)からダウンロードし、`knife cookbook site` コマンドを使用してインストールします。
+    > **注**: 次に、レシピの 3 つの依存関係をインストールする必要があります。**apt** クックブック、**windows** クックブック、**chef-client** クックブックです。3 つのクックブックは [公式 Chef クックブック リポジトリ](https://supermarket.chef.io/cookbooks)からダウンロードし、`knife cookbook site` コマンドを使用してインストールします。
 
 1.  「**管理者: Chef DK**」 PowerShell ウィンドウで以下を実行し、`knife cookbook site` コマンドを使用してクックブックをダウンロードしてインストールします:
 
@@ -278,7 +278,7 @@ https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.github
     knife cookbook site install chef-client
     ```
 
-    > ** 注**: 次に、**default.rb** レシピの完全な内容を [Microsoft Parts Unlimited MRP GitHub リポジトリ](https://raw.githubusercontent.com/Microsoft/PartsUnlimitedMRP/master/Labfiles/AZ-400T05-ImplemntgAppInfra/Labfiles/M04/DeployusingChef/final/default.rb)からコピーする必要があります。
+    > **注**: 次に、**default.rb** レシピの完全な内容を [Microsoft Parts Unlimited MRP GitHub リポジトリ](https://raw.githubusercontent.com/Microsoft/PartsUnlimitedMRP/master/Labfiles/AZ-400T05-ImplemntgAppInfra/Labfiles/M04/DeployusingChef/final/default.rb)からコピーする必要があります。
 
 1.  ラボのコンピューターで別の Web ブラウザー ウィンドウを起動し、**https://raw.githubusercontent.com/Microsoft/PartsUnlimitedMRP/master/Labfiles/AZ-400T05-ImplemntgAppInfra/Labfiles/M04/DeployusingChef/final/default.rb** に移動して RAW 形式で **default.rb** レシピを表示します。Web ページの内容をクリップボードにコピーします。
 1.  「**管理者: Chef DK**」 PowerShell ウィンドウで以下を実行し、**C:\\Labfiles\\chef\\chef-repo\\cookbooks\\mrpapp\\recipes\\default.rb** ファイルをメモ帳で開きます:
@@ -299,16 +299,16 @@ https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.github
 
 1.  メモ帳ウィンドウで、クリップボードの内容をファイルの最後に追加します (新しいラインを始めます)。変更を保存してメモ帳ウィンドウを閉じます。
 
-    > ** 注**: 以下は、コピーしたレシピがアプリケーションをプロビジョニングする方法を説明し、**default.rb** のラインごとの内容の意味を説明します。
+    > **注**: 以下は、コピーしたレシピがアプリケーションをプロビジョニングする方法を説明し、**default.rb** のラインごとの内容の意味を説明します。
 
-    > ** 注**: レシピは `apt` リソースを実行します。これにより、レシピは実行前に `apt-get update` コマンドを実行します。このコマンドでは、ローカル パッケージが最新バージョンであることを確認します:
+    > **注**: レシピは `apt` リソースを実行します。これにより、レシピは実行前に `apt-get update` コマンドを実行します。このコマンドでは、ローカル パッケージが最新バージョンであることを確認します:
 
     ```chef
      	# Runs apt-get update
      	include_recipe "apt"
     ```
 
-    > ** 注**: 次に、`apt_repository` リソースを追加して、**OpenJDK** リポジトリが apt リポジトリの一部であり、最新の状態であることを確認します:
+    > **注**: 次に、`apt_repository` リソースを追加して、**OpenJDK** リポジトリが apt リポジトリの一部であり、最新の状態であることを確認します:
 
     ```chef
  	# Add the Open JDK apt repo
@@ -318,7 +318,7 @@ https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.github
  	end
     ```
 
-    > ** 注**: 次に、`apt-package` レシピを使用して、**OpenJDK** と **OpenJRE** がインストールされていることを確認します。使用したくないレガシー パッケージに応じて、ヘッドレス バージョンをフル バージョンとして使います。
+    > **注**: 次に、`apt-package` レシピを使用して、**OpenJDK** と **OpenJRE** がインストールされていることを確認します。使用したくないレガシー パッケージに応じて、ヘッドレス バージョンをフル バージョンとして使います。
 
     ```chef
  	# Install JDK and JRE
@@ -331,7 +331,7 @@ https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.github
      	end
     ```
 
-    > ** 注**: 次に、`JAVA_HOME` と `PATH` 環境変数を設定して OpenJDK を参照します:
+    > **注**: 次に、`JAVA_HOME` と `PATH` 環境変数を設定して OpenJDK を参照します:
 
     ```chef
  	# Set Java environment variables
@@ -339,7 +339,7 @@ https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.github
      	ENV['PATH'] = "#{ENV['PATH']}:/usr/lib/jvm/java-8-openjdk-amd64/bin"
     ```
 
-    > ** 注**: 次に、MongoDB データベース エンジンと Tomcat Web サーバーをインストールします:
+    > **注**: 次に、MongoDB データベース エンジンと Tomcat Web サーバーをインストールします:
 
     ```chef
  	# Install MongoDB
@@ -353,7 +353,7 @@ https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.github
      	end
     ```
 
-    > ** 注**: この時点で、依存関係はすべてインストールされています。これでアプリケーションの構成を始められます。まず、MongoDB データベースに何らかのベースライン データがあることを確認する必要があります。`remote_file` リソースは、指定された場所にファイルをダウンロードします。このタスクは冪等なので、サーバー上のファイルのチェックサムがローカル ファイルと同じであれば、アクションは実行されません。`notifies` コマンドも使用します。これにより、リソースの実行時にファイルの新しいバージョンがある場合、指定されたリソースに通知が送られ、新しいファイルを実行するよう促します。
+    > **注**: この時点で、依存関係はすべてインストールされています。これでアプリケーションの構成を始められます。まず、MongoDB データベースに何らかのベースライン データがあることを確認する必要があります。`remote_file` リソースは、指定された場所にファイルをダウンロードします。このタスクは冪等なので、サーバー上のファイルのチェックサムがローカル ファイルと同じであれば、アクションは実行されません。`notifies` コマンドも使用します。これにより、リソースの実行時にファイルの新しいバージョンがある場合、指定されたリソースに通知が送られ、新しいファイルを実行するよう促します。
 
     ```chef
  	# Load MongoDB data
@@ -365,7 +365,7 @@ https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.github
      	end
     ```
 
-    > ** 注**: 次に、`script` リソースを使用して、前の手順でダウンロードした MongoDB データを読み込むコマンド ライン スクリプトを設定します。`script` リソースの `action` パラメーターは `nothing` に設定されています。つまり、スクリプトは、実行通知を受け取った場合にのみ実行されます。このリソースが実行されるのは、前の手順で指定された `remote_file` リソースによって通知された場合のみです。**MongoRecord.js** ファイルの新しいバージョンがアップロードされるたびに、レシピはこれをダウンロードおよびインポートします。**MongoRecords.js** ファイルが変わっていない場合は、何もダウンロードされたりインポートされたりしません!
+    > **注**: 次に、`script` リソースを使用して、前の手順でダウンロードした MongoDB データを読み込むコマンド ライン スクリプトを設定します。`script` リソースの `action` パラメーターは `nothing` に設定されています。つまり、スクリプトは、実行通知を受け取った場合にのみ実行されます。このリソースが実行されるのは、前の手順で指定された `remote_file` リソースによって通知された場合のみです。**MongoRecord.js** ファイルの新しいバージョンがアップロードされるたびに、レシピはこれをダウンロードおよびインポートします。**MongoRecords.js** ファイルが変わっていない場合は、何もダウンロードされたりインポートされたりしません!
 
     ```chef
  	script 'mongodb_import' do
@@ -375,9 +375,9 @@ https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.github
      	end
     ```
 
-    > ** 注**: 次に、Tomcat が PU MRP アプリケーションを実行するポートを設定します。これは `script` リソースを使用して正規表現を呼び出し、**etc/tomcat7/server.xml** ファイルを更新します。`not_if` アクションはガード ステートメントです。`not_if` アクションのコードが `true` を返す場合、リソースは実行しません。これにより、スクリプトは確実に必要な場合にのみ実行します。
+    > **注**: 次に、Tomcat が PU MRP アプリケーションを実行するポートを設定します。これは `script` リソースを使用して正規表現を呼び出し、**etc/tomcat7/server.xml** ファイルを更新します。`not_if` アクションはガード ステートメントです。`not_if` アクションのコードが `true` を返す場合、リソースは実行しません。これにより、スクリプトは確実に必要な場合にのみ実行します。
 
-    > ** 注**: `#{node['tomcat']['mrp_port']}` と呼ばれる属性を参照しています。この値はまだ定義されていませんが、次のタスクで定義します。属性を使用すれば、変数を設定できるため、単一のサーバーのひとつのポート、および別のサーバーの異なるポートで PU MRP アプリケーションをデプロイできます。ポートが変わる場合は、`notifies` を使用してサービス再起動を呼び出します。
+    > **注**: `#{node['tomcat']['mrp_port']}` と呼ばれる属性を参照しています。この値はまだ定義されていませんが、次のタスクで定義します。属性を使用すれば、変数を設定できるため、単一のサーバーのひとつのポート、および別のサーバーの異なるポートで PU MRP アプリケーションをデプロイできます。ポートが変わる場合は、`notifies` を使用してサービス再起動を呼び出します。
 
     ```chef
  	# Set tomcat port
@@ -389,7 +389,7 @@ https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.github
      	end
     ```
 
-    > ** 注**: これで PU MRP アプリケーションをダウンロードして、Tomcat での実行を開始できます。新しいバージョンを取得した場合は、Tomcat サービスに再起動するよう合図します。
+    > **注**: これで PU MRP アプリケーションをダウンロードして、Tomcat での実行を開始できます。新しいバージョンを取得した場合は、Tomcat サービスに再起動するよう合図します。
 
     ```chef
  	# Install the PU MRP app, restart the Tomcat service if necessary
@@ -400,7 +400,7 @@ https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.github
      	end
     ```
 
-    > ** 注**: Tomcat サービスで希望する状態を定義できます。この特定のケースでは、サービスは実行中でなくてはなりません。これによりスクリプトは Tomcat サービスの状態をチェックし、必要であれば起動します。
+    > **注**: Tomcat サービスで希望する状態を定義できます。この特定のケースでは、サービスは実行中でなくてはなりません。これによりスクリプトは Tomcat サービスの状態をチェックし、必要であれば起動します。
 
     ```chef
  	# Ensure Tomcat is running
@@ -409,7 +409,7 @@ https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.github
  	end
     ```
 
-    > ** 注**: 最後に、`ordering_service` が実行中であることを確認します。`remote_file` と `script` リソースの組み合わせを使い、ordering_service を強制終了して再起動する必要があるかチェックします。 
+    > **注**: 最後に、`ordering_service` が実行中であることを確認します。`remote_file` と `script` リソースの組み合わせを使い、ordering_service を強制終了して再起動する必要があるかチェックします。 
 
     ```chef
  	remote_file 'ordering_service' do
@@ -443,7 +443,7 @@ https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.github
     git commit -m "mrp cookbook commit"
     ```
 
-    > ** 注**: これでレシピが作成され、依存関係がインストールされたので、クックブックとレシピを Chef Automate サーバーにアップロードできます。
+    > **注**: これでレシピが作成され、依存関係がインストールされたので、クックブックとレシピを Chef Automate サーバーにアップロードできます。
 
 1.  「**管理者: Chef DK**」 PowerShell ウィンドウで以下を実行し、`knife cookbook upload` コマンドを使用してクックブックとレシピを Chef Automate サーバーにアップロードします:
 
@@ -456,7 +456,7 @@ https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.github
 
 この演習では、`knife` コマンドを使用してロールを作成します。ロールは、複数のサーバーに適用できるクックブックと属性のベースラインを定義します。
 
-> ** 注**: 詳細については、「Chef ドキュメント ページ Knife のロール」(https://docs.chef.io/knife_role.html)を参照してください。
+> **注**: 詳細については、「Chef ドキュメント ページ Knife のロール」(https://docs.chef.io/knife_role.html)を参照してください。
 
 1.  「**管理者: Chef DK**」 PowerShell ウィンドウで以下を実行し、メモ帳で **knife.rb** ファイルを開きます:
 
@@ -470,7 +470,7 @@ https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.github
     knife[:editor] = "notepad"
     ```
 
-    > ** 注**: このラインを追加すると、ロールを作成する際に knife.rb を開くエディターとしてメモ帳を指定します (これは次の手順で行われます)。knife.rb でエディターを指定しなければ、エディター環境変数を設定するよう指示するエラー メッセージを受け取ります。
+    > **注**: このラインを追加すると、ロールを作成する際に knife.rb を開くエディターとしてメモ帳を指定します (これは次の手順で行われます)。knife.rb でエディターを指定しなければ、エディター環境変数を設定するよう指示するエラー メッセージを受け取ります。
 
 1.  「**管理者: Chef DK**」 PowerShell ウィンドウで以下を実行してロールを作成し、**partsrole** という名前を付けます。
 
@@ -478,7 +478,7 @@ https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.github
     knife role create partsrole
     ```
 
-    > ** 注**: このコマンドにより、ロール定義の構造を示す JSON コンテンツが表示されたメモ帳ウィンドウが開きます。
+    > **注**: このコマンドにより、ロール定義の構造を示す JSON コンテンツが表示されたメモ帳ウィンドウが開きます。
 
     ```json
     {
@@ -562,13 +562,13 @@ https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.github
 
 1.  「**管理者: Chef DK**」 PowerShell ウィンドウに戻り、`knife role create partsrole` が完了していることを確認します。 
 
-    > ** 注**: 必ずメモ帳ウィンドウを閉じてください。完了の成功は、`Created role「partsrole」` メッセージによって示されます。 
+    > **注**: 必ずメモ帳ウィンドウを閉じてください。完了の成功は、`Created role「partsrole」` メッセージによって示されます。 
 
 #### タスク 5: PU MRP アプリをブートストラップして PU MRP アプリケーションをデプロイする
 
 この演習では、**knife** を使用して PU MRP アプリケーション サーバーをブートストラップし、これに PU MRP アプリケーション ロールを割り当てます。
 
-> ** 注**: まず、Linux VM のプロビジョニングから始めます。これはその後、Chef クライアントとして構成され、前のタスクで作成したロールを使用して PU MRP アプリケーションをデプロイします。
+> **注**: まず、Linux VM のプロビジョニングから始めます。これはその後、Chef クライアントとして構成され、前のタスクで作成したロールを使用して PU MRP アプリケーションをデプロイします。
 
 1.  ラボのコンピューターから Web ブラウザーを起動し、[Azure Resource Manager template link](
 https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2FPartsUnlimitedMRP%2Fmaster%2FLabfiles%2FAZ-400T05-ImplemntgAppInfra%2FLabfiles%2FM04%2FDeployusingChef%2Fenv%2Fdeploylinux.json) に移動します。これで自動的に Azure portal の 「**カスタム デプロイ**」 ブレードにリダイレクトされます。
@@ -589,7 +589,7 @@ https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.github
 
 1.  「**カスタム デプロイ**」 ブレードで 「**レビューと作成**」 をクリックします。検証プロセスが完了していることを確認して、「**作成**」 をクリックします。
 
-    > ** 注**: デプロイが完了するのを待ちます。これにはおよそ 2 分かかります。
+    > **注**: デプロイが完了するのを待ちます。これにはおよそ 2 分かかります。
 
 1.  デプロイの完了後、Azure portal でページの最上部にある 「**リソース、サービス、ドキュメントの検索**」 テキスト ボックスを使い、**仮想マシン** リソースを検索して選択します。「**仮想マシン**」 ブレードで、新しくデプロイされた **mrpUbuntuVM** という名前の仮想マシンを示すエントリを選択します。
 1.  **mrpUbuntuVM** ブレードで、マウスのポインターを 「**DNS 名**」 エントリの上に動かし、これをクリップボードにコピーします。 
@@ -600,7 +600,7 @@ https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.github
     ```
 1.  接続を続行するか聞かれたら「**Y**」と入力し、**Enter** キーを押します。
 
-    > ** 注**: オンボーディング スクリプトが完了するのを待ちます。これにはおよそ 3 分かかります。スクリプトは次の手順を実行します。
+    > **注**: オンボーディング スクリプトが完了するのを待ちます。これにはおよそ 3 分かかります。スクリプトは次の手順を実行します。
 
     - Chef クライアント コンポーネントのインストール。
     - `mrp` Chef ロールの割り当て。
@@ -614,7 +614,7 @@ https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.github
 
 この演習では、このラボでプロビジョニングした Azure リソースを削除し、予期しない料金を排除します。 
 
-> ** 注**: 新しく作成した Azure リソースのうち、使用しないリソースは必ず削除してください。使用しないリソースを削除しないと、予期しないコストが発生する場合があります。
+> **注**: 新しく作成した Azure リソースのうち、使用しないリソースは必ず削除してください。使用しないリソースを削除しないと、予期しないコストが発生する場合があります。
 
 #### タスク 1: Azure ラボ リソースを削除する
 
@@ -633,7 +633,7 @@ https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.github
     az group list --query "[?starts_with(name,'az400m14l02')].[name]" --output tsv | xargs -L1 bash -c 'az group delete --name $0 --no-wait --yes'
     ```
 
-    > ** 注**: コマンドは非同期に実行されるので (--nowait パラメーターで決定される)、同じ Bash セッション内ですぐに別の Azure CLI コマンドを実行できますが、リソース グループが実際に削除されるまでに数分かかります。
+    > **注**: コマンドは非同期に実行されるので (--nowait パラメーターで決定される)、同じ Bash セッション内ですぐに別の Azure CLI コマンドを実行できますが、リソース グループが実際に削除されるまでに数分かかります。
 
 ## レビュー
 
