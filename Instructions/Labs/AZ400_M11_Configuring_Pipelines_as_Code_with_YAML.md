@@ -1,4 +1,4 @@
-﻿---
+---
 lab:
     title: 'ラボ: YAML を使用したコードとしてのパイプラインの構築'
     az400Module: 'モジュール 11: Azure Pipelines を使用した継続的デプロイの実装'

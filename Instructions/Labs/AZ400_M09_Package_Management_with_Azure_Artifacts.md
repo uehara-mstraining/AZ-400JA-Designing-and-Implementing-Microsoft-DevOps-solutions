@@ -1,4 +1,4 @@
-﻿---
+---
 lab:
     title: 'ラボ: Azure Artifacts を使用したパッケージ管理'
     az400Module: 'モジュール 9: 依存関係管理戦略の設計と実装'
