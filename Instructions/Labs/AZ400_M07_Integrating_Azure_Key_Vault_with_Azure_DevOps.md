@@ -1,4 +1,4 @@
-﻿---
+---
 lab:
     title: 'ラボ: Azure Key Vault と Azure DevOps の統合'
     az400Module: 'モジュール 7: アプリケーション構成とシークレットの管理'
