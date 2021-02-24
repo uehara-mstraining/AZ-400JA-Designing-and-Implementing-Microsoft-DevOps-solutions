@@ -1,4 +1,4 @@
-﻿---
+---
 lab:
     title: 'ラボ: SonarCloud および Azure DevOps による技術的負債の管理'
     az400Module: 'モジュール 20: コンプライアンス向けのコード ベースの検証'
