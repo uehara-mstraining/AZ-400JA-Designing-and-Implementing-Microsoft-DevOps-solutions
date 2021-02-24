@@ -1,4 +1,4 @@
-﻿---
+---
 lab:
     title: 'ラボ: エージェント プールの構成とパイプライン スタイルの理解'
     module: 'モジュール 5: Configuring Azureの構成'
