@@ -1,4 +1,4 @@
-﻿---
+---
 lab:
     title: 'ラボ: 既存の ASP.NET アプリを Azure でモダン化する'
     module: 'モジュール 15: Docker を使用したコンテナーの管理'
