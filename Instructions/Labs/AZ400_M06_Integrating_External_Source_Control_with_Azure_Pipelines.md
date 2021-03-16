@@ -61,11 +61,11 @@ Azure Pipelines は、無制限の CI/CD 分と 10 の並列ジョブをすべ�
 
 このタスクでは、GitHub リポジトリをフォークし、GitHub アカウントに AzurePipelines をインストールします。
 
-1.  GitHub にまだサインインしていない場合は、ラボ コンピューターで、Web ブラウザーを起動し、[GitHub actionsdemos/calculator site](https://github.com/actionsdemos/calculator)サイトに移動し、今すぐサインインします。
+1.  GitHub にまだサインインしていない場合は、ラボ コンピューターで、Web ブラウザーを起動し、[GitHub actionsdemos/calculator](https://github.com/actionsdemos/calculator)サイトに移動し、GitHub にサインインします。
 
     > **注**: これは、このラボでフォークして使用するベースライン プロジェクトです。
 
-1.  **actionsdemos/calculator site** ページで、「**Fork**」 をクリックして、リポジトリを自分の GitHub アカウントにフォークします。プロンプトが表示されたら、リポジトリをフォークするアカウントを選択します。
+1.  **actionsdemos/calculator** ページで、「**Fork**」 をクリックして、リポジトリを自分の GitHub アカウントにフォークします。プロンプトが表示されたら、リポジトリをフォークするアカウントを選択します。
 
     > **注**: **GitHub Marketplace** には、プロジェクト ワークフローの拡張に役立つ、Microsoft およびサードパーティのさまざまなツールが用意されています。
 
@@ -81,7 +81,7 @@ Azure Pipelines は、無制限の CI/CD 分と 10 の並列ジョブをすべ�
 
     > **注**: 含めるリポジトリを指定するオプションがありますが、このラボでは、すべてのリポジトリを含めるだけです。Azure DevOps は、そのサービスを実行するために、リストされた一連のアクセス許可を必要とすることに注意してください。
 
-1.  プロンプトが表示されたら、GitHub パスワードで認証して続行します。
+1.  プロンプトが表示されたら、Azure DevOps のアカウントで認証して続行します。
 1.  プロンプトが表示されたら、「**Setup your Azure Pipelines project**」 ページの 「**Select your Azure DevOps organization**」 ドロップダウン リストで、Azure DevOps アカウントを選択し、「**Create a new project**」 をクリックします。
 1.  プロンプトが表示されたら、「**Setup your Azure Pipelines project**」 ページの 「**Project name**」 テキストボックスに「**Integrating External Source Control with Azure Pipelines**」と入力し、**Project visibility**を**Private**に設定したままにして、「**Continue**」 をクリックします。
 1.  「**Azure Pipelines by Microsoft would like permission to**」 ページで、「**Authorize Azure Pipelines**」 をクリックします。
@@ -94,9 +94,9 @@ Azure Pipelines は、無制限の CI/CD 分と 10 の並列ジョブをすべ�
 
 1.  Azure DevOps ポータルの 「**Pipelines**」 をクリックします。
 
-1.  **New pipeline**をクリックします。
+1.  **Create pipeline**をクリックします。
 
-1.  「**Select a repository**」 ペインで、前のタスクで作成した GitHub calculator リポジトリのフォークを選択します。
+1.  「**Select a repository**」 ペインで、「**GitHub**」を選択し、前のタスクで作成した GitHub calculator リポジトリのフォークを選択します。
 
     > **注**: Azure Pipelines は、既存のテンプレートが適切かどうかを判断するためにプロジェクトを分析します。この場合、推奨されるテンプレートは **Node.js** 用であり、これは私たちのニーズに最適です。いくつかの代替テンプレートも提案されていますが、このラボには推奨されるテンプレートが最適です。
 
