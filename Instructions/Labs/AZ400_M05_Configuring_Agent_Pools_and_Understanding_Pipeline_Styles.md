@@ -237,14 +237,14 @@ Windows 10 デスクトップでタスク バーを探します。タスク バ�
    | Setting                                                                                  | Value                                                                                                                                                                                       |
    | ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
    | Enter server URL                                                                         | the URL of your Azure DevOps organization, in the format **https://dev.azure.com/`<organization_name>`**, where `<organization_name>` represents the name of your Azure DevOps organization |
-   | Enter authentication type (press enter for PAT)                                          | **Enter**                                                                                                                                                                                   |
-   | Enter personal access token                                                              | The access token you recorded earlier in this task                                                                                                                                          |
+   | Enter authentication type (press enter for PAT)                                          | (ただエンターキーを押します)                                                                                                                                                                                   |
+   | Enter personal access token                                                              | Personal access token を貼り付けます                                                                                                                                          |
    | Enter agent pool (press enter for default)                                               | **az400m05l05a-pool**                                                                                                                                                                       |
    | Enter agent name                                                                         | **az400m05-vm0**                                                                                                                                                                            |
-   | Enter work folder (press enter for \_work)                                               | **Enter**                                                                                                                                                                                   |
-   | Enter Perform an unzip for tasks for each step. (press enter for N)                      | **Enter**                                                                                                                                                                                   |
+   | Enter work folder (press enter for \_work)                                               | (ただエンターキーを押します)                                                                                                                                                                                   |
+   | Enter Perform an unzip for tasks for each step. (press enter for N)                      | (ただエンターキーを押します)                                                                                                                                                                                   |
    | Enter run agent as service? (Y/N) (press enter for N)                                    | **Y**                                                                                                                                                                                       |
-   | Enter User account to use for the service (press enter for NT AUTHORITY\NETWORK SERVICE) | **Enter**                                                                                                                                                                                   |
+   | Enter User account to use for the service (press enter for NT AUTHORITY\NETWORK SERVICE) | (ただエンターキーを押します)                                                                                                                                                                                   |
 
    > **注**：セルフホストエージェントは、サービスまたは対話型プロセスとして実行できます。エージェントの機能の検証が簡単になるため、インタラクティブモードから始めることをお勧めします。本番環境で使用する場合は、エージェントをサービスとして実行するか、自動ログオンを有効にした対話型プロセスとして実行することを検討する必要があります。どちらも実行状態を維持し、オペレーティングシステムが再起動された場合にエージェントが自動的に起動するようにするためです。
 
@@ -259,12 +259,13 @@ Windows 10 デスクトップでタスク バーを探します。タスク バ�
 1. **PartsUnlimited**編集ペインの既存の YAML ベースのパイプラインで、行**7**の `vmImage：vs2017-win2016`を置き換えて、ターゲットエージェントプールに次のコンテンツを指定し、新しく作成されたセルフホステッドエージェントプールを指定します：
 
    ```yaml
-   name: az400m05l05a-pool
-   demands:
-     - agent.name -equals az400m05-vm0
+   pool:
+     name: az400m05l05a-pool
+     demands:
+       - agent.name -equals az400m05-vm0
    ```
 
-1. [`Task: NugetInstaller@0`]で、**設定(タスクの上に灰色で表示されているリンク)** をクリックし、**[Advanced]> [NuGet Version]> 4.0.0**を変更して、[**add**]をクリックします。
+1. [`Task: NugetInstaller@0`]で、**Settings(タスクの上に灰色で表示されているリンク)** をクリックし、**[Advanced]> [NuGet Version]> 4.0.0**を変更して、[**add**]をクリックします。
 1. **PartsUnlimited** Edit ペインのペインの右上隅にある[**Save**]をクリックし、[**Save**]ペインでもう一度[**Save**]をクリックします。これにより、このパイプラインに基づいてビルドが自動的にトリガーされます。
 1. Azure DevOps ポータルの左側の垂直ナビゲーションペインの[**Pipelines**]セクションで、[**Pipelines**]をクリックします。
 1. **Pipelines**ペインの**Recent**タブで、**PartsUnlimited**エントリをクリックし、**PartsUnlimited**ペインの**Runs**タブで、最新の実行を選択します。[**Summary**]ペインで、一番下までスクロールし、[**Jobs**]セクションで[**Phase 1**]をクリックして、正常に完了するまでジョブを監視します。
