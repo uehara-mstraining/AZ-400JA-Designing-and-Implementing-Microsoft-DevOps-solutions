@@ -153,7 +153,7 @@ Azure Pipelines は、無制限の CI/CD 分と 10 の並列ジョブをすべ�
 > **注**: このパイプライン設定の大きな利点の 1 つは、誰かが変更をコミットするたびに自動的に実行される品質ゲートがあることです。これにより、プロジェクトの管理がはるかに簡単になり、さまざまなレベルの品質が向上する可能性があります。
 
 1.  **azure-pipelines.yml** ファイルのコンテンツを表示する GitHub ページを表示しているブラウザー タブに戻り、フォークされたリポジトリのコンテンツを一覧表示しているページに戻り、「**Go to file**」 をクリックします。
-1.  **calculator/** プロンプトで、**arithticController.js** と入力し、結果のリストで **api/controllers/arithmeticController.js** をクリックします。これにより、ブラウザー セッションが自動的に **master/calculator/api/controllers/arithmeticController.js** ページにリダイレクトされ、そのファイルのコンテンツが表示されます。
+1.  **calculator/** プロンプトで、**arithmeticController.js** と入力し、結果のリストで **api/controllers/arithmeticController.js** をクリックします。これにより、ブラウザー セッションが自動的に **master/calculator/api/controllers/arithmeticController.js** ページにリダイレクトされ、そのファイルのコンテンツが表示されます。
 
     > **注**: このコントローラーには、アプリのコア機能が含まれています。ただし、**add**操作のコードは完全には明確ではありません。やる気はあるが、Java Script の経験が不足している人の立場に立って考えてください。彼らはこれを、コードをクリーンアップして改善することで支援する機会としてとらえるかもしれません。
 
@@ -171,7 +171,7 @@ Azure Pipelines は、無制限の CI/CD 分と 10 の並列ジョブをすべ�
 
 1.  「**Modifying the add function #1**」 Pull request ページの 「**All checks have failed**」 セクションで、「**Details**」 をクリックして詳細を確認します。
 1.  「**View more details on Azure Pipelines**」 リンクをクリックします。これにより、新しいブラウザー タブが開き、Azure DevOps ポータルで失敗したジョブの実行が表示されます。
-1.  Azure portal の失敗したジョブ ペインで、「**Jobs**」 エントリをクリックして詳細を表示します。
+1.  Azure DevOps portal の失敗したジョブ ペインで、「**Jobs**」 エントリをクリックして詳細を表示します。
 1.  ジョブ タスクのリストで、**npm install、build、test** タスクをクリックして、その出力を表示します。
 1.  失敗したテストをリストするセクションを見つけます。
 
