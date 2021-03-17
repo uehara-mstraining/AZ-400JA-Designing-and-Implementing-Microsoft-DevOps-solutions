@@ -61,11 +61,11 @@ Azure Pipelines は、無制限の CI/CD 分と 10 の並列ジョブをすべ�
 
 このタスクでは、GitHub リポジトリをフォークし、GitHub アカウントに AzurePipelines をインストールします。
 
-1.  GitHub にまだサインインしていない場合は、ラボ コンピューターで、Web ブラウザーを起動し、[GitHub actionsdemos/calculator site](https://github.com/actionsdemos/calculator)サイトに移動し、今すぐサインインします。
+1.  GitHub にまだサインインしていない場合は、ラボ コンピューターで、Web ブラウザーを起動し、[GitHub actionsdemos/calculator](https://github.com/actionsdemos/calculator)サイトに移動し、GitHub にサインインします。
 
     > **注**: これは、このラボでフォークして使用するベースライン プロジェクトです。
 
-1.  **actionsdemos/calculator site** ページで、「**Fork**」 をクリックして、リポジトリを自分の GitHub アカウントにフォークします。プロンプトが表示されたら、リポジトリをフォークするアカウントを選択します。
+1.  **actionsdemos/calculator** ページで、「**Fork**」 をクリックして、リポジトリを自分の GitHub アカウントにフォークします。プロンプトが表示されたら、リポジトリをフォークするアカウントを選択します。
 
     > **注**: **GitHub Marketplace** には、プロジェクト ワークフローの拡張に役立つ、Microsoft およびサードパーティのさまざまなツールが用意されています。
 
@@ -81,7 +81,7 @@ Azure Pipelines は、無制限の CI/CD 分と 10 の並列ジョブをすべ�
 
     > **注**: 含めるリポジトリを指定するオプションがありますが、このラボでは、すべてのリポジトリを含めるだけです。Azure DevOps は、そのサービスを実行するために、リストされた一連のアクセス許可を必要とすることに注意してください。
 
-1.  プロンプトが表示されたら、GitHub パスワードで認証して続行します。
+1.  プロンプトが表示されたら、Azure DevOps のアカウントで認証して続行します。
 1.  プロンプトが表示されたら、「**Setup your Azure Pipelines project**」 ページの 「**Select your Azure DevOps organization**」 ドロップダウン リストで、Azure DevOps アカウントを選択し、「**Create a new project**」 をクリックします。
 1.  プロンプトが表示されたら、「**Setup your Azure Pipelines project**」 ページの 「**Project name**」 テキストボックスに「**Integrating External Source Control with Azure Pipelines**」と入力し、**Project visibility**を**Private**に設定したままにして、「**Continue**」 をクリックします。
 1.  「**Azure Pipelines by Microsoft would like permission to**」 ページで、「**Authorize Azure Pipelines**」 をクリックします。
@@ -94,9 +94,9 @@ Azure Pipelines は、無制限の CI/CD 分と 10 の並列ジョブをすべ�
 
 1.  Azure DevOps ポータルの 「**Pipelines**」 をクリックします。
 
-1.  **New pipeline**をクリックします。
+1.  **Create pipeline**をクリックします。
 
-1.  「**Select a repository**」 ペインで、前のタスクで作成した GitHub calculator リポジトリのフォークを選択します。
+1.  「**Select a repository**」 ペインで、「**GitHub**」を選択し、前のタスクで作成した GitHub calculator リポジトリのフォークを選択します。
 
     > **注**: Azure Pipelines は、既存のテンプレートが適切かどうかを判断するためにプロジェクトを分析します。この場合、推奨されるテンプレートは **Node.js** 用であり、これは私たちのニーズに最適です。いくつかの代替テンプレートも提案されていますが、このラボには推奨されるテンプレートが最適です。
 
@@ -119,7 +119,7 @@ Azure Pipelines は、無制限の CI/CD 分と 10 の並列ジョブをすべ�
 
 > **注**: デフォルトのパイプラインは素晴らしいスタートですが、自動化したいすべてのことを実行できるわけではありません。たとえば、テストを実行して、変更によってバグが発生しないことを確認できれば素晴らしいと思います。YAML を手動で編集できる GitHub に戻りましょう。
 
-1.  ビルド ジョブのペインの 「**Summary**」 タブで、「**Repository and version**」 ラベルの横にある、このラボで前に作成したフォークをホストしている GitHub プロジェクト リポジトリを表すエントリを右クリックし、「**Open link in new tab**」 を選択します。これにより、新しいブラウザー タブが開き、フォークのコンテンツを含む GitHub ページが表示されます。
+1.  ビルド ジョブのペインの 「**Summary**」 タブで、「**Repository and version**」 ラベルのそばにある、このラボで前に作成したフォークをホストしている GitHub プロジェクト リポジトリを表すエントリを右クリックし、「**Open link in new tab**」 を選択します。これにより、新しいブラウザー タブが開き、フォークのコンテンツを含む GitHub ページが表示されます。
 
     > **注**: このラボでは、GitHub と Azure DevOps の間を行ったり来たりする必要があるため、それぞれに対してブラウザー タブを開いたままにしておく方が簡単です。
 
@@ -131,6 +131,9 @@ Azure Pipelines は、無制限の CI/CD 分と 10 の並列ジョブをすべ�
 1.  テスト実行を追加するには、同じインデントを使用して、`npm run build` コマンドのすぐ下に `npm test` コマンドを追加します。さらに、`npm test` エントリを `'npm install, build, and test'` に更新して、ビルドの各タスクが実行していることを明確に示します。
 
     ```
+    - script: |
+        npm install
+        npm run build
         npm test
       displayName: 'npm install, build, and test'
     ```
@@ -139,7 +142,7 @@ Azure Pipelines は、無制限の CI/CD 分と 10 の並列ジョブをすべ�
 
     > **注**: これもラボ環境であることを考慮して、この変更をマスター ブランチに直接コミットすることは許容されます。
 
-1.  **Azure DevOps** ポータルを表示しているブラウザー タブに戻り、ブレッドクラム ナビゲーションを使用して、「**Pipelines**」 ビューの 「**Pipelines**」 ペインに移動します。
+1.  **Azure DevOps** ポータルを表示しているブラウザー タブに戻り、「**Pipelines**」 ビューの 「**Pipelines**」 ペインに移動します。
 1.  更新によってトリガーされた新しいビルドが、「**Recently run pipelines**」 リストの 「**Recent**」 タブに既に表示されていることを確認します。パイプラインに対応するエントリをクリックし、「**Runs**」 タブで最新の実行を選択し、「**Jobs**」 セクションで 「**Jobs**」 エントリをクリックします。
 1.  ジョブの詳細を表示しているペインで、ジョブの個々のタスクをクリックして、完了まで実行します。
 
@@ -150,7 +153,7 @@ Azure Pipelines は、無制限の CI/CD 分と 10 の並列ジョブをすべ�
 > **注**: このパイプライン設定の大きな利点の 1 つは、誰かが変更をコミットするたびに自動的に実行される品質ゲートがあることです。これにより、プロジェクトの管理がはるかに簡単になり、さまざまなレベルの品質が向上する可能性があります。
 
 1.  **azure-pipelines.yml** ファイルのコンテンツを表示する GitHub ページを表示しているブラウザー タブに戻り、フォークされたリポジトリのコンテンツを一覧表示しているページに戻り、「**Go to file**」 をクリックします。
-1.  **calculator/** プロンプトで、**arithticController.js** と入力し、結果のリストで **api/controllers/arithmeticController.js** をクリックします。これにより、ブラウザー セッションが自動的に **master/calculator/api/controllers/arithmeticController.js** ページにリダイレクトされ、そのファイルのコンテンツが表示されます。
+1.  **calculator/** プロンプトで、**arithmeticController.js** と入力し、結果のリストで **api/controllers/arithmeticController.js** をクリックします。これにより、ブラウザー セッションが自動的に **master/calculator/api/controllers/arithmeticController.js** ページにリダイレクトされ、そのファイルのコンテンツが表示されます。
 
     > **注**: このコントローラーには、アプリのコア機能が含まれています。ただし、**add**操作のコードは完全には明確ではありません。やる気はあるが、Java Script の経験が不足している人の立場に立って考えてください。彼らはこれを、コードをクリーンアップして改善することで支援する機会としてとらえるかもしれません。
 
@@ -167,8 +170,8 @@ Azure Pipelines は、無制限の CI/CD 分と 10 の並列ジョブをすべ�
     > **注**: 「プロジェクト所有者」の元の考え方に戻ります。
 
 1.  「**Modifying the add function #1**」 Pull request ページの 「**All checks have failed**」 セクションで、「**Details**」 をクリックして詳細を確認します。
-1.  「**ANNOTATIONS**」 セクションを確認し、そのすぐ下にある 「**View more details on Azure Pipelines**」 リンクをクリックします。これにより、新しいブラウザー タブが開き、Azure DevOps ポータルで失敗したジョブの実行が表示されます。
-1.  Azure portal の失敗したジョブ ペインで、「**Jobs**」 エントリをクリックして詳細を表示します。
+1.  「**View more details on Azure Pipelines**」 リンクをクリックします。これにより、新しいブラウザー タブが開き、Azure DevOps ポータルで失敗したジョブの実行が表示されます。
+1.  Azure DevOps portal の失敗したジョブ ペインで、「**Jobs**」 エントリをクリックして詳細を表示します。
 1.  ジョブ タスクのリストで、**npm install、build、test** タスクをクリックして、その出力を表示します。
 1.  失敗したテストをリストするセクションを見つけます。
 
@@ -189,7 +192,7 @@ Azure Pipelines は、無制限の CI/CD 分と 10 の並列ジョブをすべ�
     > **注**: 変更は、各変数の前のプラス記号がそれらの変数をそれらの数値表現に強制変換するために必要であることに気付いていない誰かによって行われたようです。それらを削除することにより、Java Script は中央のプラス記号を文字列連結演算子として解釈しました。これは、失敗したテストで 21 + 21 = 2121 である理由を説明しています。
 
 1.  「**Modifying the add function #1**」 GitHub ページで、「**Review changes**」 ボタンのすぐ下にある省略記号をクリックし、ドロップダウン メニューで 「**Edit file**」 をクリックします。
-1.  **a** 変数と **b** 変数の前にプラス記号を追加して元の変更を元に戻し、結果として 'add': function(a,b) { return +a + +b },` になります。さらに、前の行に`// +演算子を使用して、文字列の連結を防ぐためにキャスト変数を整数として入力する」というコメントを含めます。
+1.  **a** 変数と **b** 変数の前にプラス記号を追加して元の変更を元に戻し、 `'add': function(a,b) { return +a + +b },` にします。さらに、前の行に「`// Using + operator to type cast variables as integers in order to prevent string concatenation`」というコメントを含めます。
 1.  ページの一番下までスクロールし、デフォルトのコミット メッセージを「**Fixing the add function**」に置き換え、「**Commit directly to the addition-cleanup branch**」 オプションが選択されていることを確認して、「**Commit changes**」 をクリックします。
 1.  **Modifying the add function #1** GitHub ページで、「**Conversation**」 タブを選択します。
 
@@ -203,7 +206,7 @@ Azure Pipelines は、無制限の CI/CD 分と 10 の並列ジョブをすべ�
 
 > **注**: 高品質プロジェクトの重要な兆候は、ビルド ステータス バッジです。プロジェクトが現在正常なビルド状態にあることを示すバッジが付いているプロジェクトを誰かが見つけた場合、それはプロジェクトが効果的に維持されていることを示しています。
 
-1.  **Azure DevOps** ポータルを表示しているブラウザー タブに戻り、ブレッドクラム ナビゲーションを使用して、**Pipelines** ビューの 「**Pipelines**」 ペインの 「**Recent**」 タブに移動します。
+1.  **Azure DevOps** ポータルを表示しているブラウザー タブに戻り、**Pipelines** ビューの 「**Recent**」 タブに移動します。
 1.  「**Recently run pipelines**」 リストの 「**Recent**」 タブで、このラボで使用したパイプラインに対応するエントリをクリックします。
 1.  パイプライン ペインで、右上隅の省略記号をクリックし、ドロップダウンリスト で 「**Status badge**」 を選択します。
 

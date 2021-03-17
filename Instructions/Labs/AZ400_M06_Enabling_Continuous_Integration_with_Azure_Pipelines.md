@@ -148,7 +148,7 @@ lab:
 
 > **注**: この演習の最初のタスクでは、継続的インテグレーションをサポートするようにビルドを構成しました。このタスクでは、その機能をテストします。
 
-1.  Azure DevOps ポータルでプロジェクト設定を表示している Web ブラウザー ウィンドウの垂直ナビゲーション ペインで、「**Repos**」 セクションを選択し、「**Files**」 ビューが表示されていることを確認します。
+1.  垂直ナビゲーション ペインで、「**Repos**」 セクションを選択し、「**Files**」 ビューが表示されていることを確認します。
 1.  中央のペインで、ファイル **PartsUnlimited-aspnet45/src/PartsUnlimitedWebsite/Views/Home/Index.cshtml** に移動して選択します。
 1.  **Index.cshtml** ペインで、「**Edit**」 をクリックします。
 1.  **Index.cshtml** ペインで、行 `ViewBag.Title = "Home Page";` を `ViewBag.Title = "Lab Project Home Page";` に変更して、「**Commit**」 をクリックします。
