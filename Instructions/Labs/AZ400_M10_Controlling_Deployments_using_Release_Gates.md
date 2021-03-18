@@ -292,11 +292,11 @@ lab:
 
    > **注**: 評価が成功すると、Pre-deployment approvals のリクエストが表示されます。
 
-1. Canary Environments にデプロイするには、「**Authorize**」 をクリックします。
+1. Canary Environments にデプロイするには、「**Approve**」 をクリックします。
 
-   > **注**: が成功すると、Application Insights を使用して、新しくデプロイされたアプリケーションを対象とする失敗したリクエストの存在を検出するデプロイ後のゲートが動作します。
+   > **注**: 成功すると、Application Insights を使用して、新しくデプロイされたアプリケーションを対象とする失敗したリクエストの存在を検出するデプロイ後のゲートが動作します。
 
-1. 失敗した要求をトリガーするには、Azure portal を表示している Web ブラウザー ウィンドウに切り替え、**Canary** Azure Web アプリ ブレードに移動して、「**参照**」 をクリックします。これにより、PartsUnlimited Web サイトを表示する新しいブラウザー タブが開きます。
+1. Post deployment プロセスを失敗させるために、Azure portal を表示している Web ブラウザー ウィンドウに切り替え、**Canary** Azure Web アプリ ブレードに移動して、「**参照**」 をクリックします。これにより、PartsUnlimited Web サイトを表示する新しいブラウザー タブが開きます。
 1. PartsUnlimited Web サイトで、「**More**」 をクリックします。
 
    > **注**: Web サイトのこの部分は意図的に誤って構成されているため、失敗した要求がトリガーされます。
