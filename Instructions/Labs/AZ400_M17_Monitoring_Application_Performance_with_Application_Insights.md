@@ -68,7 +68,7 @@ Application Insights は、複数のプラットフォームで使用できる W
 
 1.  「**サインイン**」 をクリックし、Azure DevOps サブスクリプションに関連のある Microsoft アカウントを使用してサインインします。
 1.  必要な場合は、「**Azure DevOps Demo Generator**」 ページで 「**承諾する**」 をクリックし、Azure DevOps サブスクリプションへのアクセス許可要求を承諾します。
-1.  「**Create a new project**」 ページで 「**New Project Name**」 テキストボックスに「**ア Monitoring Application Performance**」と入力します。「**Select organization**」 ドロップダウン リストで Azure DevOps 組織を選択し、「**Choose template**」 をクリックします。
+1.  「**Create a new project**」 ページで 「**New Project Name**」 テキストボックスに「**Monitoring Application Performance**」と入力します。「**Select organization**」 ドロップダウン リストで Azure DevOps 組織を選択し、「**Choose template**」 をクリックします。
 1.  テンプレートの一覧 で 「**PartsUnlimited**」 テンプレートを選択 し、「**Select template**」 をクリック します。
 1.  再び 「**Create Nnew Project**」 ページで 「**Create Project**」 をクリックします。
 
@@ -143,15 +143,15 @@ Application Insights は、複数のプラットフォームで使用できる W
 1.  **「All pipelines」 > 「PartsUnlimitedE2E」** ペインで、**Dev** ステージを示している長方形をクリックします。「**Dev**」 ペインで 「**Delete**」 をクリックし、「**Delete stage**」 ダイアログ ボックスで 「**Confirm**」 をクリックします。
 1.  **「All pipelines」 > 「PartsUnlimitedE2E」** ペインに戻り、**QA** ステージを示している長方形をクリックします。「**QA**」 ペインで 「**Delete**」 をクリックし、「**Delete stage**」 ダイアログ ボックスで 「**Confirm**」 をクリックします。
 1.  **「All pipelines」 > 「PartsUnlimitedE2E」** ペインに戻り、**Production**ステージを示す長方形で 「**1 ジョブ、1 タスク**」 リンクをクリックします。
-1.  **運用\*** ステージのタスク一覧が表示されているペインで、「**Azure App Service のデプロイ**」 タスクを示すエントリをクリックします。
+1.  **Production** ステージのタスク一覧が表示されているペインで、「**Azure App Service のデプロイ**」 タスクを示すエントリをクリックします。
 1.  「**Azure App Service のデプロイ**」 ペインの 「**Azure subscription**」 ドロップダウン リストで、このラボで使用している Azure サブスクリプションを示すエントリを選択してから 「**Authorize**」 をクリックし、該当するサービス接続を作成します。手順されたら、Azure サブスクリプションで所有者のロール、Azure サブスクリプションに関連のある Azure AD テナントでグローバル管理者のロールがあるアカウントを使用してサインインします。
-1.  **「All pipelines」 > 「PartsUnlimitedE2E」** ペインの 「**Tasks**」 タブを有効にし、「**Pipelines**」 タブのヘッダーをクリックしてパイプラインの図に戻ります。
+1.  「**Pipelines**」 タブのヘッダーをクリックしてパイプラインの図に戻ります。
 1.  この図で、**Production**ステージを示す長方形の左側にある 「**Pre-deployment conditions**」 の楕円形記号をクリックします。
 1.  「**Pre-deployment conditions**」 ペインの 「**トリガーの選択**」 セクションで 「**リリース後**」 を選択します。
 
     > **注**: プロジェクトのビルド パイプラインに成功すると、リリース パイプラインが呼び出されます。
 
-1.  **「All pipelines」 > 「PartsUnlimitedE2E」** ペインの 「**Pipelines**」 タブを有効にし、「**Variables**」 タブのヘッダーをクリックします。
+1.  「**Variables**」 タブをクリックします。
 1.  変数リストで、このラボで先ほど作成した Azure App Service Web アプリの名前に一致するように **WebsiteName** 変数の値を設定します。
 1.  ペインの右上コーナーで 「**Save**」 をクリックします。手順されたら、「**Save**」 ダイアログ ボックスで再び 「**OK**」 をクリックします。
 
