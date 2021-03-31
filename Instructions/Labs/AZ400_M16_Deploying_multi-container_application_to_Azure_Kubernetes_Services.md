@@ -1,17 +1,18 @@
 ---
 lab:
-    title: 'ラボ: Azure Kubernetes サービスへのマルチコンテナー アプリケーションのデプロイ'
-    module: 'モジュール 16: Kubernetes サービス インフラストラクチャの作成と管理'
+  title: "ラボ: Azure Kubernetes サービスへのマルチコンテナー アプリケーションのデプロイ"
+  module: "モジュール 16: Kubernetes サービス インフラストラクチャの作成と管理"
 ---
 
 # ラボ: Azure Kubernetes Services へのマルチコンテナー アプリケーションのデプロイ
+
 # 学生用ラボ マニュアル
 
 ## ラボの概要
 
-[**Azure Kubernetes Service (AKS)**](https://azure.microsoft.com/ja-jp/services/kubernetes-service/) は、Azure で Kubernetes を使用する最も簡単な方法です。**Azure Kubernetes Service (AKS)** を使用すると、ホストされている Kubernetes 環境を管理できます。これによって、コンテナー オーケストレーションの知識がなくてもコンテナー化されたアプリケーションを簡単にデプロイして管理できるようになります。また、コンテナー化されたワークロードの機敏性、スケーラビリティ、可用性が向上します。Azure DevOps は、継続的なビルドおよびデプロイ機能により、AKS 操作をさらに簡素化します。 
+[**Azure Kubernetes Service (AKS)**](https://azure.microsoft.com/ja-jp/services/kubernetes-service/) は、Azure で Kubernetes を使用する最も簡単な方法です。**Azure Kubernetes Service (AKS)** を使用すると、ホストされている Kubernetes 環境を管理できます。これによって、コンテナー オーケストレーションの知識がなくてもコンテナー化されたアプリケーションを簡単にデプロイして管理できるようになります。また、コンテナー化されたワークロードの機敏性、スケーラビリティ、可用性が向上します。Azure DevOps は、継続的なビルドおよびデプロイ機能により、AKS 操作をさらに簡素化します。
 
-このラボでは、Azure DevOps を使用して、コンテナー化された ASP.NET Core Web アプリケーション **MyHealthClinic** (MHC) を AKS クラスターにデプロイします。 
+このラボでは、Azure DevOps を使用して、コンテナー化された ASP.NET Core Web アプリケーション **MyHealthClinic** (MHC) を AKS クラスターにデプロイします。
 
 ## 目標
 
@@ -24,55 +25,55 @@ lab:
 
 ## ラボの所要時間
 
--   推定時間: **60 分**
+- 推定時間: **60 分**
 
-## 指示
+## 手順
 
 ### 開始する前に
 
 #### ラボの仮想マシンにログインする
 
 必ず次の資格情報を使用して Windows 10 コンピューターにサインインしてください。
-    
--   ユーザー名: **Student**
--   パスワード: **Pa55w.rd**
+
+- ユーザー名: **Student**
+- パスワード: **Pa55w.rd**
 
 #### このラボで必要なアプリケーションのレビュー
 
 このラボで使用するアプリケーションを特定:
-    
--   Microsoft Edge
 
-#### Azure DevOps 組織を設定します。 
+- Microsoft Edge
+
+#### Azure DevOps 組織を設定します。
 
 このラボで使用できる Azure DevOps 組織がまだない場合は、[組織またはプロジェクト コレクションの作成](https://docs.microsoft.com/ja-jp/azure/devops/organizations/accounts/create-organization?view=azure-devops) で利用できる手順に従って作成してください。
 
 #### Azure サブスクリプションの準備
 
--   既存の Azure サブスクリプションを識別するか、新しいものを作成します。
--   Azure サブスクリプションでは所有者のロール、Azure サブスクリプションに関連のある Azure AD テナントではグローバル管理者のロールで Microsoft アカウントまたは Azure AD アカウントがあることを確認します。詳細については、[Azure portal を使用して Azure ロールの割り当てを一覧表示する](https://docs.microsoft.com/ja-jp/azure/role-based-access-control/role-assignments-list-portal) および [Azure Active Directory で管理者ロールを表示して割当てる](https://docs.microsoft.com/ja-jp/azure/active-directory/roles/manage-roles-portal#view-my-roles) を参照してください。
+- 既存の Azure サブスクリプションを識別するか、新しいものを作成します。
+- Azure サブスクリプションでは所有者のロール、Azure サブスクリプションに関連のある Azure AD テナントではグローバル管理者のロールで Microsoft アカウントまたは Azure AD アカウントがあることを確認します。詳細については、[Azure portal を使用して Azure ロールの割り当てを一覧表示する](https://docs.microsoft.com/ja-jp/azure/role-based-access-control/role-assignments-list-portal) および [Azure Active Directory で管理者ロールを表示して割当てる](https://docs.microsoft.com/ja-jp/azure/active-directory/roles/manage-roles-portal#view-my-roles) を参照してください。
 
 ### 演習 0: ラボの前提条件の構成
 
-この演習では、ラボの前提条件を設定します。これは、Azure DevOps Demo Generator テンプレートに基づいて事前に構成されたチーム プロジェクトで構成されます。 
+この演習では、ラボの前提条件を設定します。これは、Azure DevOps Demo Generator テンプレートに基づいて事前に構成されたチーム プロジェクトで構成されます。
 
 #### タスク 1: チーム プロジェクトを構成する
 
 このタスクでは、Azure DevOps Demo Generator を使用し、**Azure Kubernetes Service** テンプレートに基づいて新しいプロジェクトを生成します。
 
-1.  ラボのコンピューターで Web ブラウザーを起動し、[Azure DevOps Demo Generator](https://azuredevopsdemogenerator.azurewebsites.net) に移動します。このユーティリティ サイトは、ラボで必要なコンテンツ (作業項目、リポジトリなど) が事前設定されている新しい Azure DevOps プロジェクトをアカウント内で作成するプロセスを自動化します。 
+1.  ラボのコンピューターで Web ブラウザーを起動し、[Azure DevOps Demo Generator](https://azuredevopsdemogenerator.azurewebsites.net) に移動します。このユーティリティ サイトは、ラボで必要なコンテンツ (作業項目、リポジトリなど) が事前設定されている新しい Azure DevOps プロジェクトをアカウント内で作成するプロセスを自動化します。
 
-    > **注**: サイトの詳細については、https://docs.microsoft.com/ja-jp/azure/devops/demo-gen をご覧ください。
+        > **注**: サイトの詳細については、https://docs.microsoft.com/ja-jp/azure/devops/demo-gen をご覧ください。
 
 1.  「**サインイン**」 をクリックし、Azure DevOps サブスクリプションに関連のある Microsoft アカウントを使用してサインインします。
 1.  必要な場合は、「**Azure DevOps Demo Generator**」 ページで 「**承諾する**」 をクリックし、Azure DevOps サブスクリプションへのアクセス許可要求を承諾します。
-1.  「**新しいプロジェクトの作成**」 ページで 「**新しいプロジェクト名**」 テキストボックスに「***」と入力します。「**組織の選択**」 ドロップダウン リストで Azure DevOps 組織を選択し、「**テンプレートの選択**」 をクリックします。
-1.  テンプレートのリストのツールバーで 「**DevOps ラボ**」 をクリックし、「**Azure Kubernetes Service**」 テンプレートを選択して 「**テンプレートの選択**」 をクリックします。
-1.  再び 「**新しいプロジェクトの作成**」 ページで、欠落している拡張機能をインストールするよう指示されたら 「**トークンの置換**」 と 「**Kubernetes 拡張機能**」 の下にあるチェックボックスを選択し、「**プロジェクトの作成**」 をクリックします。
+1.  「**Create a new project**」 ページで 「**New Project Name**」 テキストボックスに「**Deploying a multi-container application to AKS**」と入力します。「**Select organization**」 ドロップダウン リストで Azure DevOps 組織を選択し、「**Choose template**」 をクリックします。
+1.  テンプレートのリストのツールバーで 「**DevOps Lab**」 をクリックし、「**Azure Kubernetes Service**」 テンプレートを選択して 「**Select template**」 をクリックします。
+1.  再び 「**Create a new project**」 ページで、欠落している拡張機能をインストールするよう手順されたら 「**Replace Tokens - License Terms**」 と 「**Kubernetes extension**」 の下にあるチェックボックスを選択し、「**Create Project**」 をクリックします。
 
     > **注**: プロセスが完了するまでお待ちください。これにはおよそ 2 分かかります。プロセスが失敗した場合は、DevOps 組織に移動し、プロジェクトを削除して、再試行してください。
 
-1.  「**新しいプロジェクトの作成**」 ページで 「**プロジェクトに移動**」 をクリックします。
+1.  「**Create New Project**」 ページで 「**Navigate to project**」 をクリックします。
 
 ### 演習 1: Azure DevOps を使用して、コンテナー化された ASP.NET Core Web アプリケーションを AKS クラスターにデプロイする
 
@@ -82,25 +83,25 @@ lab:
 
 このタスクでは、Azure CLI を使用して、このラボで必要な以下の Azure リソースのデプロイを行います:
 
-| Azure リソース | 説明 |
-| --------------- | ----------- |
-| Azure Container Registry | Docker イメージのプライベート ストとして機能します |
-| AKS | Docker イメージを実行しているコンテナーのオーケストレーターとして機能します |
-| Azure SQL Database | AKS で実行中のコンテナー化されたワークロードの固定ストアを提供します |
+| Azure リソース           | 説明                                                                        |
+| ------------------------ | --------------------------------------------------------------------------- |
+| Azure Container Registry | Docker イメージのプライベート レジストリとして機能します                    |
+| AKS                      | Docker イメージを実行しているコンテナーのオーケストレーターとして機能します |
+| Azure SQL Database       | AKS で実行中のコンテナー化されたワークロードの永続ストアを提供します        |
 
 1.  ラボのコンピューターから Web ブラウザーを起動し、[**Azure Portal**](https://portal.azure.com) に移動します。このラボで使用している Azure サブスクリプションで少なくとも共同作成者のロールがあるユーザー アカウントを使ってサインインします。
-1.  Azure portal のツールバーで、検索テキスト ボックスのすぐ右側にある **Cloud Shell** アイコンをクリックします。 
-1.  **Bash** または **PowerShell** のいずれかを選択するためのプロンプトが表示されたら、**「Bash」** を選択します。 
+1.  Azure portal のツールバーで、検索テキスト ボックスのすぐ右側にある **Cloud Shell** アイコンをクリックします。
+1.  **Bash** または **PowerShell** のいずれかを選択するためのプロンプトが表示されたら、**「Bash」** を選択します。
 
-    > **注**: **Cloud Shell** を初めて起動し、「**ストレージがマウントされていません**」というメッセージが表示された場合は、このラボで使用しているサブスクリプションを選択し、「**ストレージの作成**」を選択します。 
+    > **注**: **Cloud Shell** を初めて起動し、「**ストレージがマウントされていません**」というメッセージが表示された場合は、このラボで使用しているサブスクリプションを選択し、「**ストレージの作成**」を選択します。
 
-1.  Cloud Shell ペインでバッシュ セッションから以下を実行し、このラボで使用する Azure リージョンで利用可能な Kubernetes の最新バージョンを特定します (`<Azure_region` プレースホルダーは、このラボでリソースをデプロイしたい Azure リージョンの名前に置き換えます):
+1.  Cloud Shell ペインでバッシュ セッションから以下を実行し、このラボで使用する Azure リージョンで利用可能な Kubernetes の最新バージョンを特定します (`<Azure_region>` プレースホルダーは、このラボでリソースをデプロイしたい Azure リージョンの名前に置き換えます):
 
     ```bash
     LOCATION=<Azure_region>
     VERSION=$(az aks get-versions --location $LOCATION --query 'orchestrators[-1].orchestratorVersion' --output tsv)
     ```
-   
+
 1.  Cloud Shell ペインでバッシュ セッションから以下を実行し、AKS デプロイをホストするリソース グループを作成します:
 
     ```bash
@@ -109,16 +110,16 @@ lab:
     ```
 
 1.  Cloud Shell ペインのバッシュ セッションから以下を実行し、利用可能な最新バージョンを使用して AKS クラスターを作成します:
-    
+
     ```bash
     AKSNAME='az400m16aks'$RANDOM$RANDOM
     az aks create --location $LOCATION --resource-group $RGNAME --name $AKSNAME --enable-addons monitoring --kubernetes-version $VERSION --generate-ssh-keys
     ```
-    
-    > **注**: 次のタスクに進む前に、デプロイが完了するのを待ちます。AKS のデプロイには約 5 分間かかります。 
+
+    > **注**: 次のタスクに進む前に、デプロイが完了するのを待ちます。AKS のデプロイには約 5 分間かかります。
 
 1.  「Cloud Shell」 ペインのバッシュ セッションから以下を実行し、このラボで使用する Azure SQL データベースをホストする論理サーバーを作成します:
-  
+
     ```bash
     SQLNAME='az400m16sql'$RANDOM$RANDOM
     az sql server create --location $LOCATION --resource-group $RGNAME --name $SQLNAME --admin-user sqladmin --admin-password P2ssw0rd1234
@@ -131,7 +132,6 @@ lab:
     ```
 
 1.  Cloud Shell ペインのバッシュ セッションから以下を実行し、このラボで使用する Azure SQL データベースを作成します:
-
 
     ```bash
     az sql db create --resource-group $RGNAME --server $SQLNAME --name mhcdb --service-objective S0 --no-wait
@@ -173,76 +173,73 @@ lab:
 
     > **注**: 両方の値を記録します。これは、次のタスクで必要になります。
 
-1. 「Cloud Shell」 ペインを閉じます。
+1.  「Cloud Shell」 ペインを閉じます。
 
-#### タスク 2:  ビルド パイプラインとリリース パイプラインを構成する
+#### タスク 2: ビルド パイプラインとリリース パイプラインを構成する
 
 このタスクでは、Azure リソースをマッピングすることにより、このラボで先ほど生成した Azure DevOps プロジェクトでビルド パイプラインとリリース パイプラインを構成します (AKS クラスターと、ビルドおよびリリース定義への Azure Container レジストリが含まれます)。
 
-1.  ラボのコンピューターで、Azure DevOps ポータルが表示され、「**AKS へのマルチコンテナー アプリケーションのデプロイ**」プロジェクトが開いている Web ブラウザー ウィンドウに切り替え、Azure DevOps ポータルの一番左側にある垂直メニュー バーで 「**パイプライン**」 をクリックします。
-1.  「**パイプライン**」 ペインで、**MyHealth.AKS.build** パイプラインを示しているエントリをクリックし、「**MyHealth.AKS.Build**」 ペインで 「**編集**」 をクリックします。
-1.  パイプラインのタスク一覧で 「**サービスの実行**」 タスクをクリックします。右側にある 「**Docker Compose**」 ペインの 「**Azure サブスクリプション**」 ドロップダウン リストで、 
-このラボで使用している Azure サブスクリプションを示すエントリを選択します。「**承認**」 をクリックして、該当するサービス接続を作成します。指示されたら、Azure サブスクリプションで所有者のロール、Azure サブスクリプションに関連のある Azure AD テナントでグローバル管理者のロールがあるアカウントを使用してサインインします。
+1.  ラボのコンピューターで、Azure DevOps ポータルが表示され、「**Deploying a multi-container application to AKS**」プロジェクトが開いている Web ブラウザー ウィンドウに切り替え、Azure DevOps ポータルの一番左側にある垂直メニュー バーで 「**Pipelines**」 をクリックします。
+1.  「**Pipelines**」 ペインで、**MyHealth.AKS.build** パイプラインを示しているエントリをクリックし、「**MyHealth.AKS.Build**」 ペインで 「**Edit**」 をクリックします。
+1.  パイプラインのタスク一覧で 「**Run services**」 タスクをクリックします。右側にある 「**Docker Compose**」 ペインの 「**Azure subscription**」 ドロップダウン リストで、このラボで使用している Azure サブスクリプションを示すエントリを選択します。「**Authorize**」 をクリックして、該当するサービス接続を作成します。手順されたら、Azure サブスクリプションで所有者のロール、Azure サブスクリプションに関連のある Azure AD テナントでグローバル管理者のロールがあるアカウントを使用してサインインします。
 
-    > **注**: この手順では、Azure サービス接続が作成され、サービス プリンシパル認証 (SPA) を使用してターゲット Azure サブスクリプションへの接続が定義・確立されます。 
+    > **注**: この手順では、Azure サービス接続が作成され、サービス プリンシパル認証 (SPA) を使用してターゲット Azure サブスクリプションへの接続が定義・確立されます。
 
-1.  パイプラインのタスク一覧で 「**サービスの実行**」 タスクを選択し、右側の 「**Docker Compose**」 ペインにある 「**Azure Container Registry**」 ドロップダウン リストから、このラボで先ほど作成した ACR インタンスを示しているエントリを選択します。
-1.  前の 2 つの手順を繰り返し、「**サービスのビルド**」、「**サービスのプッシュ**」、「**サービスのロック**」 タスクで **Azure サブスクリプション**と **Azure Container Registry** の設定を構成します。ただし、この場合は Azure サブスクリプションを選択する代わりに、新しく作成されたサービス接続を選択します。 
+1.  パイプラインのタスク一覧で 「**Run services**」 タスクを選択し、右側の 「**Docker Compose**」 ペインにある 「**Azure Container Registry**」 ドロップダウン リストから、このラボで先ほど作成した ACR インタンスを示しているエントリを選択します。
+1.  前の 2 つの手順を繰り返し、「**Build services**」、「**Push services**」、「**Lock services**」 タスクで **Azure subscription**と **Azure Container Registry** の設定を構成します。ただし、この場合は Azure サブスクリプションを選択する代わりに、新しく作成されたサービス接続を選択します。
 
     > **注**: パイプラインは以下のタスクで構成されます
 
-    | タスク | 使用状況 |
-    | ----- | ----- |
-    | **トークンの置換** | プレースホルダーを、**appsettings.json** ファイルおよび **mhc-aks.yaml** マニフェスト ファイルのデータベース接続文字列の ACR 名に置き換えます |
-    | **サービスの実行** |  必要なイメージ (aspnetcore-build:1.0-2.0 など) をプルし、**csproj** で参照されるパッケージを復元して環境を準備します |
-    | **サービスのビルド** |  **docker-compose.yml** ファイルで指定されている Docker イメージと、**$(Build.BuildId)** および **latest** タグの付いているタグ イメージをビルドします |
-    | **サービスのプッシュ** |  Azure Container Registry に Docker イメージ「**myhealth.web**」をプッシュします |
-    | **ビルド成果物の公開** |  **mhc-aks.yaml** および **myhealth.dacpac** ファイルを Azure DevOps の成果物格納場所に公開し、その後のリリースで利用できるようにします |
+    | タスク                      | 使用状況                                                                                                                                              |
+    | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+    | **Replace tokens**          | プレースホルダーを、**appsettings.json** ファイルおよび **mhc-aks.yaml** マニフェスト ファイルのデータベース接続文字列の ACR 名に置き換えます         |
+    | **Run services**            | 必要なイメージ (aspnetcore-build:1.0-2.0 など) をプルし、**csproj** で参照されるパッケージを復元して環境を準備します                                  |
+    | **Build services**          | **docker-compose.yml** ファイルで指定されている Docker イメージと、**$(Build.BuildId)** および **latest** タグの付いているタグ イメージをビルドします |
+    | **Push services**           | Azure Container Registry に Docker イメージ「**myhealth.web**」をプッシュします                                                                       |
+    | **Publish Build Artifacts** | **mhc-aks.yaml** および **myhealth.dacpac** ファイルを Azure DevOps の成果物格納場所に公開し、その後のリリースで利用できるようにします                |
 
-    > **注**: **appsettings.json** ファイルには、このラボで先ほど作成した Azure SQL データベースへの接続で使われるデータベース接続文字列の詳細が含まれています。**mhc-aks.yaml** マニフェスト ファイルには、**デプロイ**、**サービス**、Azure Kubernetes Service でデプロイされる**ポッド**の構成情報が含まれています。デプロイ マニフェストの詳細については、[AKS デプロイと YAML マニフェスト](https://docs.microsoft.com/ja-jp/azure/aks/concepts-clusters-workloads#deployments-and-yaml-manifests)を参照してください
-1.  「**パイプライン変数**」 リストで、前のタスクの最後に記録しておいた値を使い、**ACR** と **SQLserver** 変数を更新します。その後、「**保存してキューに登録**」 ボタンの隣にある下向きキャレット記号をクリックし、「**保存**」 をクリックして変更を保存します。再び指示されたら 「**保存**」 をクリックします。
-1.  Azure DevOps ポータルが表示されている Web ブラウザー ウィンドウで、Azure DevOps ポータルの一番左にある垂直メニュー バーの 「**パイプライン**」 セクションで 「**リリース**」 をクリックします。 
-1.  「**パイプライン / リリース**」 ペインで 「**MyHealth.AKS.Release**」 エントリを選択し、「**編集**」 をクリックします。
-1.  「**すべてのパイプライン / MyHealth.AKS.Release**」 ペインで、デプロイの **Dev** ステージを示す長方形の中にある 「**2 ジョブ、3 タスク**」 リンクをクリックします。
-1.  **Dev** ステージのタスク一覧の 「**DB デプロイ**」 ジョブ セクション内で 「**Azure SQL の実行: DacpacTask**」 タスクを選択します。右側の 「**Azure SQL Database デプロイ**」 ペインで 「**Azure サブスクリプション**」 ドロップダウン リストから、このタスクで先ほど作成した Azure サービス接続を示すエントリを選択します。
-1.  **Dev** ステージのタスク一覧の 「**AKS デプロイ**」 ジョブセクションで、「**AKS でデプロイとサービスを作成**」 タスクを選択します。 
-1.  右側の 「**Kubectl**」 ペインで 「**Azure サブスクリプション**」 ドロップダウン リストから、同じ Azure サービス接続を示すエントリを選択します。「**リソース グループ**」 ドロップダウン リストから 「**az400m16l01a-RG**」 エントリを選択し、「**Kubernetes クラスター**」 ドロップダウン リストからこのラボで先ほどデプロイした AKS クラスターを示すエントリを選択します。
-1.  **Dev** ステージのタスク一覧の 「**AKS デプロイ**」 ジョブ セクションで、「**AKS でデプロイとサービスを作成**」 タスクを選択します。右側の 「**Kubectl**」 ペインでスクロールダウンし、「**シークレット**」 セクションを拡張します。「**Azure サブスクリプション**」 ドロップダウン リストから同じ Azure サービス接続を示すエントリを選択します。「**Azure Container レジストリ**」 ドロップダウン リストから、このラボで先ほど作成した Azure Container レジストリを示すエントリを選択します。
-1.  「**AKS でイメージを更新**」 タスクでも前の 2 つの手順を繰り返します。
+    > **注**: **appsettings.json** ファイルには、このラボで先ほど作成した Azure SQL データベースへの接続で使われるデータベース接続文字列の詳細が含まれています。**mhc-aks.yaml** マニフェスト ファイルには、**デプロイ**、**Services**、Azure Kubernetes Service でデプロイされる**ポッド**の構成情報が含まれています。デプロイ マニフェストの詳細については、[AKS デプロイと YAML マニフェスト](https://docs.microsoft.com/ja-jp/azure/aks/concepts-clusters-workloads#deployments-and-yaml-manifests)を参照してください
 
-    > **注**: 「**AKS でデプロイとサービスを作成**」 タスクでは、**mhc-aks.yaml** ファイルで指定された構成に従い、AKS で必要なデプロイとサービスを作成します。ポッドは最新の docker イメージをプルします。
+1.  「**Pipeline variables**」 リストで、前のタスクの最後に記録しておいた値を使い、**ACR** と **SQLserver** 変数を更新します。その後、「**Save & queue**」 ボタンの隣にある下向きキャレット記号をクリックし、「**Save**」 をクリックして変更を保存します。再び手順されたら 「**Save**」 をクリックします。
+1.  Azure DevOps ポータルが表示されている Web ブラウザー ウィンドウで、Azure DevOps ポータルの一番左にある垂直メニュー バーの 「**Pipelines**」 セクションで 「**Releases**」 をクリックします。
+1.  「**Pipelines / Releases**」 ペインで 「**MyHealth.AKS.Release**」 エントリを選択し、「**Edit**」 をクリックします。
+1.  「**All pipelines / MyHealth.AKS.Release**」 ペインで、デプロイの **Dev** ステージを示す長方形の中にある 「**2 jobs, 3 tasks**」 リンクをクリックします。
+1.  **Dev** ステージのタスク一覧の 「**DB deployment**」 ジョブ セクション内で 「**Execute Azure SQL: DacpacTask**」 タスクを選択します。右側の 「**Azure SQL Database deployment**」 ペインで 「**Azure subscription**」 ドロップダウン リストから、このタスクで先ほど作成した Azure サービス接続を示すエントリを選択します。
+1.  **Dev** ステージのタスク一覧の 「**AKS deployment**」 ジョブセクションで、「**Create Deployments & Services in AKS**」 タスクを選択します。
+1.  右側の 「**Kubectl**」 ペインで 「**Azure subscription**」 ドロップダウン リストから、同じ Azure サービス接続を示すエントリを選択します。「**Resource group**」 ドロップダウン リストから 「**az400m16l01a-RG**」 エントリを選択し、「**Kubernetes クラスター**」 ドロップダウン リストからこのラボで先ほどデプロイした AKS クラスターを示すエントリを選択します。
+1.  **Dev** ステージのタスク一覧の 「**AKS deployment**」 ジョブ セクションで、「**Create Deployments & Services in AKS**」 タスクを選択します。右側の 「**Kubectl**」 ペインでスクロールダウンし、「**Secrets**」 セクションを拡張します。「**Azure subscription**」 ドロップダウン リストから同じ Azure サービス接続を示すエントリを選択します。「**Azure container registry**」 ドロップダウン リストから、このラボで先ほど作成した Azure Container レジストリを示すエントリを選択します。
+1.  「**Update image in AKS**」 タスクでも前の 2 つの手順を繰り返します。
 
-    > **注**: 「**AKS でイメージを更新**」 タスクでは、指定されたリポジトリから BuildID に対応する必要なイメージをプルし、そのイメージを AKS で実行中の **mhc-front pod** にデプロイします。
+    > **注**: 「**Create Deployments & Services in AKS**」 タスクでは、**mhc-aks.yaml** ファイルで指定された構成に従い、AKS で必要なデプロイとサービスを作成します。ポッドは最新の docker イメージをプルします。
+
+    > **注**: 「**Update image in AKS**」 タスクでは、指定されたリポジトリから BuildID に対応する必要なイメージをプルし、そのイメージを AKS で実行中の **mhc-front pod** にデプロイします。
 
     > **注**: `kubectl create secret` コマンドをバックグラウンドで使用することで、Azure DevOps により「**mysecretkey**」と呼ばれるシークレットが AKS クラスターで作成されます。このシークレットを使用して、myhealth.web イメージをプルするために Azure Container Registry へのアクセスが承認されます。
 
-1.  **MyHealth.AKS.Release** パイプラインの **Dev** ステージの 「**タスク**」 ペインで、「**変数**」 タブをクリックします。 
-1.  「**パイプライン変数**」 リストで、前のタスクの最後に記録した Azure Container Registry 名に **ACR** 変数の値を更新します。 
-1.  「**パイプライン変数**」 リストで、前のタスクの最後に記録した論理サーバーの名前に **SQLserver** 変数の値を更新します。 
-1.  「**すべてのパイプライン / MyHealth.AKS.Release**」 ペインで 「**保存**」 をクリックします。指示されたら再び 「**保存**」 をクリックして変更を保存します。
+1.  **MyHealth.AKS.Release** パイプラインの **Dev** ステージの 「**Tasks**」 ペインで、「**Variables**」 タブをクリックします。
+1.  「**Pipeline variables**」 リストで、前のタスクの最後に記録した Azure Container Registry 名に **ACR** 変数の値を更新します。
+1.  「**Pipeline variables**」 リストで、前のタスクの最後に記録した論理サーバーの名前に **SQLserver** 変数の値を更新します。
+1.  「**All pipelines / MyHealth.AKS.Release**」 ペインで 「**Save**」 をクリックします。手順されたら再び 「**Save**」 をクリックして変更を保存します。
 
     > **注**: パイプライン変数のリストで **DatabaseName** は **mhcdb** に設定されており、**SQLuser** は **sqladmin**、**SQLpassword** は **P2ssw0rd1234** に設定されています。このラボで以前に Azure SQL データベースを作成した際に異なる値を入力していた場合は、それに従って変数の値を更新します。
-
-1. 「**DB のデプロイ**」 ジョブと 「**AKS のデプロイ**」 ジョブでは、"Agent Pool" (**Azure Pipelines --> windows-2019**) を選択します。
-
 
 #### タスク 3: ビルド パイプラインとリリース パイプラインをトリガーする
 
 このタスクでは、ビルド パイプラインとリリース パイプラインをトリガーして、その完了を検証します。
 
-1.  Azure DevOps ポータルが表示されている Web ブラウザー ウィンドウで、Azure DevOps ポータルの一番左にある垂直メニュー バーの 「**パイプライン**」 セクションで 「**パイプライン**」 をクリックします。 
-1.  「**パイプライン**」 ペインで 「**MyHealth.AKS.build**」 パイプラインを選択し、「**MyHealth.AKS.build**」 ペインで 「**パイプラインの実行**」 クリックします。「**パイプラインの実行**」 ペインで 「**実行**」 をクリックします。
-1.  ビルド パイプライン実行ペインの 「**ジョブ**」 セクションで 「**フェーズ 1**」 をクリックし、ビルド プロセスの進捗状況を監視します。
+1.  Azure DevOps ポータルが表示されている Web ブラウザー ウィンドウで、Azure DevOps ポータルの一番左にある垂直メニュー バーの 「**Pipelines**」 セクションで 「**Pipelines**」 をクリックします。
+1.  「**Pipelines**」 ペインで 「**MyHealth.AKS.build**」 パイプラインを選択し、「**MyHealth.AKS.build**」 ペインで 「**Run pipeline**」 クリックします。「**Run pipeline**」 ペインで 「**Runs**」 をクリックします。
+1.  ビルド パイプライン実行ペインの 「**Jobs**」 セクションで 「**Phase 1**」 をクリックし、ビルド プロセスの進捗状況を監視します。
 
-    > **注**: ビルドでは、docker イメージを生成して ACR をプッシュします。ビルドの完了後、ビルドの概要をレビューできます。 
+    > **注**: ビルドでは、docker イメージを生成して ACR をプッシュします。ビルドの完了後、ビルドの概要をレビューできます。
 
 1.  生成されたイメージをレビューするには、Azure ポータルを表示している Web ブラウザー ウィンドウに切り替えます。
-1.  Azure ポータルで 「**コンテナー レジストリ**」 リソース タイプを検索して選択します。「**コンテナー レジストリ**」 ブレードで、このラボで先ほど作成した Azure Container レジストリを選択します。
-1.  Azure Container レジストリ ブレードの 「**サービス**」 セクションで 「**リポジトリ**」 をクリックし、リポジトリのリストに **myhealth.web** エントリが含まれていることを確認します。
+1.  Azure ポータルで 「**Container registries**」 リソース タイプを検索して選択します。「**Container registries**」 ブレードで、このラボで先ほど作成した Azure Container レジストリを選択します。
+1.  Azure Container レジストリ ブレードの 「**Services**」 セクションで 「**Repositories**」 をクリックし、リポジトリのリストに **myhealth.web** エントリが含まれていることを確認します。
 1.  Azure DevOps ポータルが表示されている Web ブラウザー ウィンドウに戻ります。
-1.  Azure DevOps ポータルの一番左にある垂直メニュー バーの 「**パイプライン**」 セクションで 「**リリース**」 をクリックします。「**MyHealth.AKS.Release**」 ブレードで最新のリリースをクリックし、「**進行中**」 リンクを選択してリリースの進捗状況を監視します。
+1.  Azure DevOps ポータルの一番左にある垂直メニュー バーの 「**Pipelines**」 セクションで 「**Releases**」 をクリックします。「**MyHealth.AKS.Release**」 ブレードで最新のリリースをクリックし、「**In progress**」 リンクを選択してリリースの進捗状況を監視します。
 1.  リリースが完了したら、Azure ポータルを表示している Web ブラウザー ウィンドウに切り替えます。
-1.  Azure portal のツールバーで、検索テキスト ボックスのすぐ右側にある **Cloud Shell** アイコンをクリックします。 
+1.  Azure portal のツールバーで、検索テキスト ボックスのすぐ右側にある **Cloud Shell** アイコンをクリックします。
 1.  Cloud Shell ペインのバッシュ セッションから以下を実行し、このラボで先ほどデプロイした AKS クラスターへのアクセスを取得します:
 
     ```bash
@@ -263,7 +260,7 @@ lab:
     kubectl get service mhc-front --watch
     ```
 
-    > **注**: このアプリケーションは、外部接続を提供するロード バランサー サービスのあるポッドでデプロイされるよう設計されています。 
+    > **注**: このアプリケーションは、外部接続を提供するロード バランサー サービスのあるポッドでデプロイされるよう設計されています。
 
 1.  コマンド出力の 「**External-IP**」 列で IP アドレスの値をメモし、新しい Web ブラウザー タブを開きます。その IP アドレスを参照し、**MyHealthClinic** アプリケーションが実行中であることを確認します。
 
@@ -271,13 +268,13 @@ lab:
 
 ### 演習 2: Azure ラボ リソースを削除する
 
-この演習では、このラボでプロビジョニングした Azure リソースを削除し、予期しない料金を排除します。 
+この演習では、このラボでプロビジョニングした Azure リソースを削除し、予期しない料金を排除します。
 
 > **注**: 新しく作成した Azure リソースのうち、使用しないリソースは必ず削除してください。使用しないリソースを削除しないと、予期しないコストが発生する場合があります。
 
 #### タスク 1: Azure ラボ リソースを削除する
 
-このタスクでは、Azure Cloud Shell を使用して、このラボでプロビジョニングされた Azure リソースを削除し、不要な料金を排除します。 
+このタスクでは、Azure Cloud Shell を使用して、このラボでプロビジョニングされた Azure リソースを削除し、不要な料金を排除します。
 
 1.  Azure portal で、**Cloud Shell** ウィンドウ内で **Bash** シェル セッションを開きます。
 1.  次のコマンドを実行して、このモジュールのラボ全体で作成したすべてのリソース グループのリストを表示します。
@@ -296,4 +293,4 @@ lab:
 
 ## レビュー
 
-このラボでは、Azure DevOps を使用して、コンテナー化された ASP.NET Core Web アプリケーション **MyHealthClinic** (MHC) を AKS クラスターにデプロイする方法を学習しました。 
+このラボでは、Azure DevOps を使用して、コンテナー化された ASP.NET Core Web アプリケーション **MyHealthClinic** (MHC) を AKS クラスターにデプロイする方法を学習しました。
