@@ -175,15 +175,15 @@ Windows 10 デスクトップでタスク バーを探します。タスク バ�
              TargetPath: '\\my\share\$(Build.DefinitionName)\$(Build.BuildNumber)'
    ```
 
-1. Visual Studio Code ウィンドウのトップレベルメニューで[**選択**]をクリックし、ドロップダウンメニューで[**すべて選択**]をクリックします。
-1. Visual Studio Code ウィンドウのトップレベルメニューで[**Edit**]をクリックし、ドロップダウンメニューで[**コピー**]をクリックします。
+1. Visual Studio Code ウィンドウのトップレベルメニューで[**Selection(選択)**]をクリックし、ドロップダウンメニューで[**Select All(すべて選択)**]をクリックします。
+1. Visual Studio Code ウィンドウのトップレベルメニューで[**Edit**]をクリックし、ドロップダウンメニューで[**Copy(コピー)**]をクリックします。
 1. Azure DevOps ポータルを表示しているブラウザーウィンドウに切り替え、左側の垂直ナビゲーションペインの[**Pipelines**]をクリックします。
 
 1. **Pipelines**ペインの**Recent**タブで**PartsUnlimited**を選択し、**PartsUnlimited**ペインで**Edit**を選択します。
 1. **PartsUnlimited** 編集ペインで、パイプラインの既存の YAML コンテンツを選択して削除し、クリップボードのコンテンツに置き換えます。
 1. **PartsUnlimited** 編集ペインの右上隅にある[**Save**]をクリックし、[**Save**]ペインで[**Save**]をクリックします。これにより、このパイプラインに基づいてビルドが自動的にトリガーされます。
 1. Azure DevOps ポータルの左側の垂直ナビゲーションペインの[**Pipelines**]をクリックします。
-1. **Pipelines**ペインの**Recent**タブで、**PartsUnlimited**エントリをクリックし、**PartsUnlimited**ペインの**Runs**タブで、最新の実行を選択します。 [**Summary**]ペインで、一番下までスクロールし、[**Jobs**]セクションで[**Phase 1**]をクリックして、正常に完了するまでジョブを監視します。
+1. **Pipelines**ペインの**Recent**タブで、**PartsUnlimited**エントリをクリックし、**PartsUnlimited**ペインの**Runs**タブで、最新の実行をクリックします。 [**Summary**]ペインで、一番下までスクロールし、[**Jobs**]セクションで[**Phase 1**]をクリックして、正常に完了するまでジョブを監視します。
 
 ### 演習 2：AzureDevOps エージェントプールを管理する
 
@@ -209,7 +209,7 @@ Windows 10 デスクトップでタスク バーを探します。タスク バ�
 
 1. **Success**ペインで、**Close**をクリックします。
 1. AzureDevOps ポータルの左上隅の**Azure DevOps**をクリックしてから、左下隅の**Organization settings**ラベルをクリックします。
-1. **Summary**ペインの左側の垂直メニューの[**Pipelines**]セクションで、[**Agent pools**]をクリックします。
+1. 左側の垂直メニューの[**Pipelines**]セクションで、[**Agent pools**]をクリックします。
 1. [**Agent pools**]ペインの右上隅にある[**Add pool**]をクリックします。
 1. [**Add agent pool**]ペインの[**Pool type**]ドロップダウンリストで、[**Self-hosted**]を選択し、[**Name**]テキストボックスに**az400m05l05a-pool**と入力します。 次に、[**Create**]をクリックします。
 1. **Agent pools**ペインに戻り、新しく作成された**az400m05l05a-pool**を表すエントリをクリックします。
@@ -226,7 +226,9 @@ Windows 10 デスクトップでタスク バーを探します。タスク バ�
    [System.IO.Compression.ZipFile]::ExtractToDirectory("$HOME\Downloads\vsts-agent-win-x64-[AGENT_VERSION].zip", "$PWD")
    ```
 
-1. **Administrator: Windows PowerShell**コンソールを開き、以下を実行してエージェントを構成します。
+1. **Administrator: Windows PowerShell**コンソールで、以下を実行してエージェントを構成します。
+
+  > PowerShell ISE ではなく、Windows PowerShell コンソールの利用をお勧めします。
 
    ```powershell
    .\config.cmd
@@ -248,7 +250,7 @@ Windows 10 デスクトップでタスク バーを探します。タスク バ�
 
    > **注**：セルフホストエージェントは、サービスまたは対話型プロセスとして実行できます。エージェントの機能の検証が簡単になるため、インタラクティブモードから始めることをお勧めします。本番環境で使用する場合は、エージェントをサービスとして実行するか、自動ログオンを有効にした対話型プロセスとして実行することを検討する必要があります。どちらも実行状態を維持し、オペレーティングシステムが再起動された場合にエージェントが自動的に起動するようにするためです。
 
-   > **注**：エージェントが**Listening for Jobs**ステータスを報告していることを確認してください。
+   > **注**：エージェントが**Started successfully**ステータスを報告していることを確認してください。
 
 1. Azure DevOps ポータルを表示しているブラウザーウィンドウに切り替えて、[Get the agent]ペインを閉じます。
 1. **az400m05l05a-pool**ペインの**Agents**タブを開き、新しく構成されたエージェントが**Online**ステータスでリストされていることに注意してください。
@@ -265,7 +267,7 @@ Windows 10 デスクトップでタスク バーを探します。タスク バ�
        - agent.name -equals az400m05-vm0
    ```
 
-1. [`Task: NugetInstaller@0`]で、**Settings(タスクの上に灰色で表示されているリンク)** をクリックし、**[Advanced]> [NuGet Version]> 4.0.0**を変更して、[**add**]をクリックします。
+1. [`Task: NugetInstaller@0`]の上にある**Settings(タスクの上に灰色で表示されているリンク)** をクリックし、**[Advanced]> [NuGet Version]> 4.0.0**を変更して、[**add**]をクリックします。
 1. **PartsUnlimited** Edit ペインのペインの右上隅にある[**Save**]をクリックし、[**Save**]ペインでもう一度[**Save**]をクリックします。これにより、このパイプラインに基づいてビルドが自動的にトリガーされます。
 1. Azure DevOps ポータルの左側の垂直ナビゲーションペインの[**Pipelines**]セクションで、[**Pipelines**]をクリックします。
 1. **Pipelines**ペインの**Recent**タブで、**PartsUnlimited**エントリをクリックし、**PartsUnlimited**ペインの**Runs**タブで、最新の実行を選択します。[**Summary**]ペインで、一番下までスクロールし、[**Jobs**]セクションで[**Phase 1**]をクリックして、正常に完了するまでジョブを監視します。
