@@ -69,18 +69,17 @@ GitHub Actions は、継続的インテグレーション (CI) を GitHub リポ
 - Node の CI というタイトルの Pull request を作成します。
 
 1.  ラボ コンピューターで、Web ブラウザーを起動し、[GitHub Actions: Continuous Integration](https://lab.github.com/githubtraining/github-actions:-continuous-integration)の起動ページに移動します。GitHub にまだサインインしていない場合は、右上隅にある 「**Sign in**」 をクリックします。
-1.  「**GitHub Learning Lab**」 ページで、「**Start learning with GitHub Learning Lab**」 をクリックします。
 1.  [GitHub Actions: Continuous Integration ラボ](https://lab.github.com/githubtraining/github-actions:-continuous-integration),の起動ページに戻り、「**Start free course**」 をクリックします。
 1.  ポップアップウィンドウが開くので、「**Begin GitHub Actions: Continuous Integration**」 をクリックします。**GitHub Learning Lab** が GitHub アカウントに **github-actions-for-ci** という名前のパブリック リポジトリを作成します。
-1.  「**GitHub Actions: Continuous Integration**」 ページに戻り、「**Course steps**」 のリストで、最初のステップ 「**Use a templated workflow**」 の横にある 「**Start**」 をクリックします。**github-actions-for-ci** リポジトリの 「**Issues**」 タブに自動的にリダイレクトされます。
-1.  **github-actions-for-ci** リポジトリの 「**Issues**」 タブの 「**There's a bug**」 の問題ページで、「**Welcome**」 セクションを確認します。
+1.  「**GitHub Actions: Continuous Integration**」 ページの「**Course steps**」 のリストで、最初のステップ 「**Use a templated workflow**」 の横にある 「**Start**」 をクリックします。**github-actions-for-ci** リポジトリの 「**Issues**」 タブに自動的にリダイレクトされます。
+1.  **github-actions-for-ci** リポジトリの 「**Issues**」 タブの 「**There's a bug**」 ページで、「**Welcome**」 セクションを確認します。
 
     > **注**: 「**Welcome**」 セクションによると、リポジトリのどこかにバグがあります。継続的インテグレーション (CI) の実践を使用して自動テストを設定し、このようなシナリオの発見、診断、および最小化を容易にします。コードベースは Node.js で書かれています。GitHub Actions を使用すると、Node.js などの一般的な言語やフレームワーク用にテンプレート化されたワークフローを使用できます。テンプレート化されたワークフローを使用して Pull request を作成します。
 
-1.  「**There's a bug**」 ページで、「**Actions**」 トップ メニューのタブ ヘッダーをクリックします。
-1.  **github-actions-for-ci** リポジトリの 「**Actions**」 タブの 「**Get started with GitHub Actions**」 ページの 「**Node.js**」 ペインで、「**Set up this workflow**」 をクリックします。
-1.  **github-actions-for-ci/.github/workflows/node.js.yml** ページで、「**Start commit**」 をクリックします。
-1.  「**Commit new file**」 ペインで、このコミットの新しいブランチを作成するデフォルト設定を受け入れて Pull request を開始し、「**Commit new file**」 をクリックします。
+1.  「**There's a bug**」 ページで、トップメニューにある「**Actions**」タブをクリックします。
+1.  **github-actions-for-ci** リポジトリの 「**Actions**」 タブの 「**Get started with GitHub Actions**」 ページの右側にある 「**Node.js**」 ペインで、「**Set up this workflow**」 をクリックします。
+1.  **github-actions-for-ci/.github/workflows/node.js.yml** ページが開くので、画面右上の「**Start commit**」 をクリックします。
+1.  「**Commit new file**」 ペインで、このコミットの新しいブランチを作成するデフォルト設定を受け入れて「**Commit new file**」 をクリックして **Pull request** を開始します。
 1.  「**Open a pull request**」 ページで、Pull request の名前を、「**Create node.js.yml**」 から「**CI for Node**」 に変更し、「**Create pull request**」 をクリックします。
 
 > **注**: テンプレート化されたワークフローをブランチに追加するだけで、GitHub Actions がリポジトリの CI を開始できます。
@@ -89,7 +88,7 @@ GitHub Actions は、継続的インテグレーション (CI) を GitHub リポ
 
 このタスクでは、テンプレート化されたワークフローの実行を追跡し、結果を確認します
 
-1.  **CI for Node #2** の 「**Pull requests**」 タブの「**Conversation**」 で、意図した変更を確認します。これは、**github/workflows/node.js.yml** ファイルの内容を表します。
+1.  **CI for Node #2** の 「**Pull requests**」 タブの「**Conversation**」 で、意図した変更を確認します。ここには、**github/workflows/node.js.yml** ファイルの内容が表示されます。
 
 1.  個々の変更を確認するときに、対応する 「**Resolve conversation**」 ボタンをクリックします。
 
@@ -155,7 +154,7 @@ GitHub Actions は、継続的インテグレーション (CI) を GitHub リポ
    > **注**: この Pull request では、良く使用される JavaScript テスト フレームワークである Jest が導入されています。これを使用して、継続的インテグレーションに使用する方法を学習します。
 
 1. 「**Add Jest tests**」 ページの Pull request の 「**Conversation**」 タブで、「**Merge pull request**」 をクリックしてから、「**Confirm merge**」 をクリックします。
-1. 「**Add Jest tests**」 ページの「**Conversation**」 タブで、**github-learning-lab** ボットからのコメントで 「**next step**」 リンクをクリックします。これにより、**github-actions-for-ci** GitHub リポジトリの**CI for Node #2** Pull request の 「**Conversation**」 タブにリダイレクトされます。
+1. 「**Pull requests**」をクリックし、「**CI for Node**」をクリックし、**CI for Node #2** Pull request の 「**Conversation**」 タブに移動します。
 
 #### タスク 4: Actions ログを確認して失敗したテストを特定する
 
@@ -169,7 +168,7 @@ GitHub Actions は、継続的インテグレーション (CI) を GitHub リポ
 - 失敗したテストの名前を特定する
 - 失敗したテストの名前を含むコメントを Conversation に追加する
 
-1. **CI for Node #2** の 「**Conversation**」 タブに戻り、**github-learning-lab** ボットから 「**Waiting on tests**」 コメントまでスクロールして、その内容を確認します。
+1. **CI for Node #2** の 「**Conversation**」 タブに戻り、**github-learning-lab** ボットから 「**Waiting on tests**」 コメントまでスクロールダウンして、その内容を確認します。
 1. 「**Conversation**」 タブの下にスクロールし、失敗した個々のチェックの横にある各 「**Details**」リ ンクをクリックします。これにより、**CI for Node #2** の 「**Checks**」 タブに自動的にリダイレクトされます。
 1. **CI for Node #2** の 「**Checks**」 タブで、各ビルド ログを確認し、**Run npm test**中にすべての失敗があることを確認します。
 1. **Run npm test**ステージを調べ、「**Game**」 セクションで、失敗を示す **X** マークが付いている個々のテストの名前を特定します。
@@ -195,7 +194,7 @@ GitHub Actions は、継続的インテグレーション (CI) を GitHub リポ
          ✓ Wins if up-right diagonal is filled
    ```
 
-1. 「**Conversation**」 タブに戻り、コメントのリストの一番下までスクロールし、最後のコメントの 「**Write**」 タブで、「**Leave a comment**」 を前の手順で特定したテストの名前に置き換えて、「**Comment**」 をクリックします。
+1. 「**Conversation**」 タブに戻り、コメントのリストの一番下までスクロールし、コメントの 「**Write**」 タブで、「**Leave a comment**」 を前の手順で特定したテストの名前（以下の通り）に置き換えて、「**Comment**」 をクリックします。
 
    ```
    Initializes with two players
@@ -231,7 +230,7 @@ GitHub Actions は、継続的インテグレーション (CI) を GitHub リポ
 > **注**: テスト ファイルにテストするコードファイルと同じ名前を付け、.test.js 拡張子を追加するのが一般的な方法です。game.test.js のテスト結果は、game.js の問題が原因であると推測できます。
 
 1. **CI for Node #2** Pull request の 「**Conversation**」 タブで、**github-learning-lab** ボットからの最新のコメントを見つけてその内容を確認します。
-1. コメントで参照されているコードの変更を特定するには、「**View changes**」 ボタンをクリックし、**\_\_test\_\_/game.test.js** ファイルを表すセクションまでスクロールして、提案された変更を確認します。
+1. コメントで参照されているコードの変更を特定するには、コメントの右横にある「**View changes**」 ボタンをクリックし、一番下にある **\_\_test\_\_/game.test.js** ファイルを表すセクションまでスクロールして、提案された変更を確認します。
 
    ```yaml
    Suggested change
@@ -239,12 +238,12 @@ GitHub Actions は、継続的インテグレーション (CI) を GitHub リポ
    this.p2 = p2
    ```
 
-1. **CI for Node #2** Pull request の 「**Conversation**」 タブに戻り、**github-learning-lab** ボットから最新のコメントまでスクロールダウンし、「**Commit suggestion**」 をクリックして、ポップアップ ペインで 「**Commit changes**」 をクリックします。
+1. 「**Commit suggestion**」 をクリックして、ポップアップ ペインで 「**Commit changes**」 をクリックします。
 
    > **注**: 変更をコミットすると、テストが再度実行され、今回は正常に完了します。
 
-1. **CI for Node #2** Pull request の 「**Conversation**」 タブで、「**Changes approved**」 応答まで下にスクロールし、「**Merge pull request**」 をクリックしてから、「**Confirm merge**」 をクリックします。
-1. **CI for Node #2** Pull request の 「**Conversation**」 タブで、**github-learning-lab** ボットからの最新のコメントで 「**next step**」 リンクをクリックします。これにより、**A workflow for the entire team #4**の 「**Issues**」 タブにリダイレクトされます。
+1. **CI for Node #2** Pull request の 「**Conversation**」 タブで、一番下までスクロールして処理が終わるのを待ちます。「**Changes approved**」「**All checkes have passed**」「**This branch has no conflicts with the base branch**」の下に表示される、「**Merge pull request**」 をクリックしてから、「**Confirm merge**」 をクリックします。
+1. **CI for Node #2** Pull request の 「**Conversation**」 タブで、一番下に表示されている **github-learning-lab** ボットからの最新のコメントにある 「**next step**」 リンクをクリックします。これにより、**A workflow for the entire team #4**の 「**Issues**」 タブにリダイレクトされます。
 
 #### タスク 6: 次のステップを確認する
 
@@ -273,7 +272,7 @@ GitHub Actions は、継続的インテグレーション (CI) を GitHub リポ
 1.  **github-actions-for-ci/.github/workflows/node.js.yml** ファイルで、`node-version: [10.x, 12.x, 14.x, 15.x]` を `node-version: [12.x, 14.x]` に置き換えます。
 1.  「**Code**」 タブの右上隅にある 「**Start commit**」 をクリックします。
 1.  「**Commit changes**」 ペインで、このコミットの新しいブランチを作成するデフォルト設定を受け入れて Pull request を開始し、「**Commit changes**」 をクリックします。
-1.  「**Open a pull request**」 ページで、「**Update node.js.yml**」 の名前を 「**Improve CI**」 に変更し、「**Create pull request**」 をクリックします。これにより、**github-actions-for-ci** リポジトリの 「**Pull request**」 タブの 「**Create CI #5**」 ページに自動的にリダイレクトされます。
+1.  「**Open a pull request**」 ページで、「**Update node.js.yml**」 を 「**Improve CI**」 に変更し、「**Create pull request**」 をクリックします。これにより、**github-actions-for-ci** リポジトリの 「**Pull request**」 タブの 「**Create CI #5**」 ページに自動的にリダイレクトされます。
 
 > **注**: Node の特定のバージョンを対象とすることで、複数のオペレーティング システム、プラットフォーム、および言語バージョンにわたるテストを可能にするビルド マトリックスを構成しました。このトピックの詳細については、[GitHub Docs](https://help.github.com/en/articles/configuring-a-workflow#configuring-a-build-matrix) を参照してください。
 
@@ -295,13 +294,13 @@ GitHub Actions は、継続的インテグレーション (CI) を GitHub リポ
   node-version: [12.x, 14.x]
   ```
 
-1.  **github-actions-for-ci** リポジトリの 「**Pull request**」 タブの 「**Improve CI #5**」 ページで、**github-learning-lab** ボットから最新のコメントまでスクロールし、その内容を確認します。
+1.  **github-actions-for-ci** リポジトリの 「**Pull request**」 タブの 「**Improve CI #5**」 ページで、**github-learning-lab** ボットから最新のコメント「**Step 8: Target a Windows environment**」までスクロールし、その内容を確認します。
 1.  「**Activity: Edit your workflow file to build for Windows environments**」 セクションで、ステップ 1 の**github/workflows/nodejs.yml** リンクをクリックします。 これにより、リポジトリ **github-actions-for-ci** の「**Code**」 タブにある **github-actions-for-ci/.github/Workflows/node.js.yml** ファイルの 「**Edit file**」 ビューにリダイレクトされます。
 1.  **github-actions-for-ci/.github/workflows/node.js.yml** ファイルで、matrix セクションを確認します。
-1.  「**Pull request**」 タブの 「**Improve CI #5**」 ページの、「**Activity: Edit your workflow file to build for Windows environments**」 セクションに戻り、「**Commit suggestion**」 をクリックし、ポップ アップ ペインで「**Commit changes**」 をクリックします。
+1.  前のページに戻り、**Step 8: Target a Windows environment** の中にある「**Commit suggestion**」 をクリックし、ポップ アップ ペインで「**Commit changes**」 をクリックします。
 1.  これにより、 「**Improve CI #5**」 ページのコンテンツが、**New Job**というラベルの付いた **github-learning-lab** ボットからの最新のコメントで更新されます。
 
-> **注**: ログを確認すると、この時点で 4 つのビルドがあることがわかります。これは、2 つのオペレーティング システムのそれぞれについて、2 つのバージョンに対してテストを実行しているためです。
+> **注**: Checks タブでジョブのログを確認すると、4 つの Build があることがわかります。これは、2 つのオペレーティング システムのそれぞれについて、2 つのバージョンに対してテストを実行しているためです。
 
 #### タスク 9: 複数のジョブを構成する
 
@@ -309,7 +308,8 @@ GitHub Actions は、継続的インテグレーション (CI) を GitHub リポ
 
 > **注**: 次に、専用のテスト ジョブを作成しましょう。これにより、ワークフローのビルド機能とテスト機能を、ワークフローがトリガーされたときに実行される複数のジョブに分割できます。
 
-1.  **github-actions-for-ci** リポジトリの 「**Pull request**」 タブの 「**Improve CI #5**」 ページで、「**New Job**」 というラベルの付いた **github-learning-lab** ボットからの最新のコメントで、「**Step 9: Use multiple jobs**」 セクションで、ステップ 1 の**your workflow file**のリンクをクリックします。 これにより、ブラウザーは、リポジトリ **github-actions-for-ci** の「**Code**」 タブにある **github-actions-for-ci/.github/Workflows/node.js.yml** ファイルの 「**Edit file**」 ビューにリダイレクトされます。
+1.  **github-actions-for-ci** リポジトリの 「**Pull request**」 タブの 「**Improve CI #5**」 ページで、「**New Job**」 というラベルの付いた **github-learning-lab** ボットからの最新のコメントまでスクロールします。
+1. 「**Step 9: Use multiple jobs**」 セクションで、ステップ 1 の**your workflow file**のリンクをクリックします。 これにより、ブラウザーは、リポジトリ **github-actions-for-ci** の「**Code**」 タブにある **github-actions-for-ci/.github/Workflows/node.js.yml** ファイルの 「**Edit file**」 ビューにリダイレクトされます。
 
 1.  次のようにファイルを上書きし、ワークフローを、ビルド用のジョブと、テスト用のジョブの 2 つに分離します。
 
@@ -368,10 +368,10 @@ GitHub Actions は、継続的インテグレーション (CI) を GitHub リポ
 
 > **注**: ビルドは成功したが、各テストジョブは失敗したことに気付く場合があります。これは、各ジョブが仮想環境の新しいインスタンスで実行されるため、ビルドで作成されたビルド アーティファクトをテスト ジョブで使用できないためです。これは、仮想環境の設計に固有の部分です。これに対処するために、組み込みのアーティファクト ストレージを使用して、あるジョブから作成されたアーティファクトを保存し、同じワークフロー内の別のジョブで使用できます。アーティファクトを使用すると、ジョブの完了後にデータを永続化し、同じワークフロー内の別のジョブとそのデータを共有できます。アーティファクトは、ワークフローの実行中に生成されたファイルまたはファイルのコレクションです。
 
-> **注**: アーティファクトをアーティファクト ストレージにアップロードするには、GitHub によってビルドされた Actions actions/upload-artifacts を使用できます。
+> **注**: アーティファクトをストレージにアップロードするには、GitHub によってビルドされた Actions actions/upload-artifacts を使用できます。
 
 1.  「**Pull request**」 タブの 「**Improve CI #5**」 ページで、「**Use the upload**」 というラベルの付いた **github-learning-lab** ボットからの最新のコメントを確認します。「**Step 11: Upload a job's build artifacts**」 セクションの、ステップ 1 で**your workflow file**のリンクをクリックします。これにより、ブラウザーは、リポジトリ **github-actions-for-ci** の「**Code**」 タブにある **github-actions-for-ci/.github/Workflows/node.js.yml** ファイルの 「**Edit file**」 ビューにリダイレクトされます。
-1.  ビルド ジョブ セクションで、ビルド ジョブを更新します。 **upload-artifacts** Actions を含めるように、次のように更新します。
+1.  Build ジョブ セクションで、ビルド ジョブを更新します。 **upload-artifacts** Actions を含めるように、次のように更新します。
 
     ```yaml
     build:
@@ -540,7 +540,7 @@ GitHub Actions は、継続的インテグレーション (CI) を GitHub リポ
       - Actions でラベルを作成してこのリポジトリに適用できるようにするには、**GITHUB_TOKEN** が必要です。
       - **ADD_LABEL** は、承認の数に達したときに追加する必要があるラベルの名前です。その名前は任意です。
 
-1.  **github-actions-for-ci** リポジトリの 「**Code**」 タブに切り替え、ブランチのリストで、**team-workflow** エントリを選択し、フォルダーのリストで、**.github /workflows** をクリックし、「**approval-workflow.yml**」 をクリックします。 **github-actions-for-ci/.github/workflows/approval-workflow.yml** のコンテンツを表示し、コードペインの右側にある鉛筆アイコンをクリックして編集モードに入ります。
+1.  **github-actions-for-ci** リポジトリの 「**Code**」 タブに切り替え、ブランチを **team-workflow** エントリに変更し、フォルダーのリストで、**.github /workflows** をクリックし、「**approval-workflow.yml**」 をクリックします。 **github-actions-for-ci/.github/workflows/approval-workflow.yml** のコンテンツを表示し、コードペインの右側にある鉛筆アイコンをクリックして編集モードに入ります。
 1.  次のコンテンツを **approval-workflow.yml** ファイルに追加します。
 
     ```yaml
